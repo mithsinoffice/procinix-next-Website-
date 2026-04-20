@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/primitives/Container";
 import {
@@ -65,19 +66,16 @@ export function Footer() {
           <div className="col-span-2 md:col-span-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-2.5 text-white mb-5"
+              className="inline-flex items-center mb-5 hover:opacity-90 transition-opacity"
+              aria-label="Procinix home"
             >
-              <span className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--accent-teal)] to-[var(--accent-teal-bright)]">
-                <span className="absolute inset-0.5 rounded-md bg-[var(--bg-primary)]" />
-                <span className="relative font-display text-[14px] font-bold text-[var(--accent-teal-bright)]">
-                  P
-                </span>
-              </span>
-              <span className="font-display text-[19px] font-semibold tracking-[-0.01em]">
-                procinix
-                <span className="text-[var(--accent-teal)]">.</span>
-                <span className="text-white/70 text-[15px]">ai</span>
-              </span>
+              <Image
+                src="/logo-procinix.png"
+                alt="Procinix — Automation & Beyond"
+                width={2847}
+                height={714}
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="text-[14px] text-white/55 leading-relaxed mb-6 max-w-sm">
               A unified finance operations platform — agentic AI, intelligent workflows, and real-time analytics across Source-to-Pay, Order-to-Cash, and Record-to-Report.

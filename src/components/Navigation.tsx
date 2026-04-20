@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
@@ -82,20 +83,17 @@ export function Navigation() {
         <div className="mx-auto flex h-[72px] max-w-[1400px] items-center justify-between px-6 sm:px-8 lg:px-12">
           <Link
             href="/"
-            className="group flex items-center gap-2.5 text-white"
-            aria-label="Procinix home"
+            className="flex items-center hover:opacity-90 transition-opacity"
+            aria-label="Procinix — Automation & Beyond"
           >
-            <span className="relative flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--accent-teal)] to-[var(--accent-teal-bright)] shadow-[0_0_20px_-4px_var(--accent-teal)]">
-              <span className="absolute inset-0.5 rounded-md bg-[var(--bg-primary)]" />
-              <span className="relative font-display text-[13px] font-bold text-[var(--accent-teal-bright)]">
-                P
-              </span>
-            </span>
-            <span className="font-display text-[18px] font-semibold tracking-[-0.01em]">
-              procinix
-              <span className="text-[var(--accent-teal)]">.</span>
-              <span className="text-white/70 text-[14px]">ai</span>
-            </span>
+            <Image
+              src="/logo-procinix.png"
+              alt="Procinix — Automation & Beyond"
+              width={2847}
+              height={714}
+              priority
+              className="h-10 sm:h-11 w-auto"
+            />
           </Link>
 
           {/* Desktop nav */}
