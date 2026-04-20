@@ -26,9 +26,14 @@ type PageSeo = {
 export function buildMetadata(seo: PageSeo): Metadata {
   const url = `${SITE_URL}${seo.path.startsWith("/") ? seo.path : `/${seo.path}`}`;
   const description = seo.description ?? DEFAULT_DESCRIPTION;
-  const image = seo.image ?? DEFAULT_OG_IMAGE;
   const fullTitle =
     seo.title === SITE_NAME ? SITE_NAME : `${seo.title} | ${SITE_NAME}`;
+
+  // If a page passes an explicit image, honour it. Otherwise let Next.js
+  // auto-wire the OG image from src/app/opengraph-image.tsx.
+  const explicitImages = seo.image
+    ? [{ url: seo.image, width: 1200, height: 630, alt: fullTitle }]
+    : undefined;
 
   return {
     title: fullTitle,
@@ -44,7 +49,7 @@ export function buildMetadata(seo: PageSeo): Metadata {
       siteName: SITE_NAME,
       title: fullTitle,
       description,
-      images: [{ url: image, width: 1200, height: 630, alt: fullTitle }],
+      ...(explicitImages ? { images: explicitImages } : {}),
       publishedTime: seo.publishedTime,
       modifiedTime: seo.modifiedTime,
       locale: "en_US",
@@ -53,7 +58,7 @@ export function buildMetadata(seo: PageSeo): Metadata {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [image],
+      ...(seo.image ? { images: [seo.image] } : {}),
     },
   };
 }
