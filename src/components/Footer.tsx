@@ -88,10 +88,10 @@ export function Footer() {
               <li className="flex items-start gap-2.5">
                 <Mail className="h-4 w-4 mt-0.5 text-[var(--accent-teal)] shrink-0" />
                 <a
-                  href="mailto:hello@procinix.ai"
+                  href="mailto:info@procinix.ai"
                   className="hover:text-white transition-colors"
                 >
-                  hello@procinix.ai
+                  info@procinix.ai
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
@@ -106,7 +106,7 @@ export function Footer() {
             </ul>
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="https://www.linkedin.com/company/procinix"
+                href="https://www.linkedin.com/company/procinix-technologies-private-limited"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"

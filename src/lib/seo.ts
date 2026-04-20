@@ -70,12 +70,12 @@ export function organizationJsonLd() {
     name: SITE_NAME,
     url: SITE_URL,
     logo: `${SITE_URL}/logo-procinix.png`,
-    sameAs: ["https://www.linkedin.com/company/procinix"],
+    sameAs: ["https://www.linkedin.com/company/procinix-technologies-private-limited"],
     contactPoint: [
       {
         "@type": "ContactPoint",
         contactType: "sales",
-        email: "sales@procinix.ai",
+        email: "info@procinix.ai",
         availableLanguage: ["en"],
       },
     ],

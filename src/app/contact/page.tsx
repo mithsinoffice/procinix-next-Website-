@@ -46,10 +46,10 @@ export default function Page() {
                     Email
                   </div>
                   <a
-                    href="mailto:hello@procinix.ai"
+                    href="mailto:info@procinix.ai"
                     className="hover:text-white transition-colors"
                   >
-                    hello@procinix.ai
+                    info@procinix.ai
                   </a>
                 </div>
               </li>
