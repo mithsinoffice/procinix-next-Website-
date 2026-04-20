@@ -66,7 +66,7 @@ export default function Page() {
             Depending on your jurisdiction, you may have rights to access,
             correct, delete, or port your personal information. To exercise
             these rights, email{" "}
-            <a href="mailto:privacy@procinix.ai">privacy@procinix.ai</a>.
+            <a href="mailto:info@procinix.ai">info@procinix.ai</a>.
           </p>
 
           <h2>Cookies and analytics</h2>
@@ -80,7 +80,7 @@ export default function Page() {
           <h2>Contact</h2>
           <p>
             Questions about this policy? Email{" "}
-            <a href="mailto:privacy@procinix.ai">privacy@procinix.ai</a>.
+            <a href="mailto:info@procinix.ai">info@procinix.ai</a>.
           </p>
 
           <p className="muted">

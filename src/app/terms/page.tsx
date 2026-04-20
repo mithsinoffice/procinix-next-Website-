@@ -78,7 +78,7 @@ export default function Page() {
           <h2>Contact</h2>
           <p>
             Questions about these terms? Email{" "}
-            <a href="mailto:legal@procinix.ai">legal@procinix.ai</a>.
+            <a href="mailto:info@procinix.ai">info@procinix.ai</a>.
           </p>
 
           <p className="muted">
