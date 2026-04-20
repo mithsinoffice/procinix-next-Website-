@@ -9,14 +9,15 @@ import { Chip } from "@/components/primitives/Chip";
 import { ButtonLink } from "@/components/primitives/Button";
 import { CORE_ROUTES } from "@/lib/routes";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: (i: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.08 * i, duration: 0.7, ease: [0.2, 0.65, 0.3, 0.9] },
-  }),
-};
+const fadeUp = (i: number = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: {
+    delay: 0.08 * i,
+    duration: 0.7,
+    ease: [0.2, 0.65, 0.3, 0.9] as [number, number, number, number],
+  },
+});
 
 const chips = [
   { label: "Powered by Agentic AI", icon: <Sparkles /> },
@@ -34,16 +35,9 @@ export function Hero() {
       <GridLines />
 
       <Container size="wide" className="relative z-10 py-20 sm:py-28 lg:py-32">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={{
-            show: { transition: { staggerChildren: 0.05 } },
-          }}
-          className="flex flex-col items-start gap-8 max-w-4xl"
-        >
+        <div className="flex flex-col items-start gap-8 max-w-4xl">
           {/* Eyebrow */}
-          <motion.div custom={0} variants={fadeUp}>
+          <motion.div {...fadeUp(0)}>
             <Chip tone="teal" dot>
               Automation & Beyond
             </Chip>
@@ -51,8 +45,7 @@ export function Hero() {
 
           {/* Hero line */}
           <motion.h1
-            custom={1}
-            variants={fadeUp}
+            {...fadeUp(1)}
             className="font-display text-white leading-[1.02] tracking-[-0.025em] text-[44px] sm:text-[64px] lg:text-[80px] xl:text-[92px]"
           >
             Don't change <br className="hidden sm:block" />
@@ -74,8 +67,7 @@ export function Hero() {
 
           {/* Subcopy */}
           <motion.p
-            custom={2}
-            variants={fadeUp}
+            {...fadeUp(2)}
             className="text-[17px] sm:text-[19px] lg:text-[20px] text-white/70 leading-[1.55] max-w-2xl"
           >
             A unified finance operations platform that goes beyond automation —
@@ -88,8 +80,7 @@ export function Hero() {
 
           {/* Multi-X statement */}
           <motion.p
-            custom={3}
-            variants={fadeUp}
+            {...fadeUp(3)}
             className="text-[13.5px] uppercase tracking-[0.22em] text-white/45"
           >
             Built for multi-entity · multi-country · multi-industry operations
@@ -97,8 +88,7 @@ export function Hero() {
 
           {/* CTAs */}
           <motion.div
-            custom={4}
-            variants={fadeUp}
+            {...fadeUp(4)}
             className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-2"
           >
             <ButtonLink
@@ -121,8 +111,7 @@ export function Hero() {
 
           {/* Chip row */}
           <motion.div
-            custom={5}
-            variants={fadeUp}
+            {...fadeUp(5)}
             className="flex flex-wrap gap-2 mt-8 max-w-3xl"
           >
             {chips.map((c) => (
@@ -131,7 +120,7 @@ export function Hero() {
               </Chip>
             ))}
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Bottom stats strip */}
         <motion.div
