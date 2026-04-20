@@ -17,6 +17,8 @@ import { PillarFlow } from "@/components/sections/PillarFlow";
 import { PillarModules } from "@/components/sections/PillarModules";
 import { ValueDrivers } from "@/components/sections/ValueDrivers";
 import { ValueAssessmentTeaser } from "@/components/sections/ValueAssessmentTeaser";
+import { FaqSection } from "@/components/sections/FaqSection";
+import { R2R_FAQS } from "@/content/faqs";
 import { CallToAction } from "@/components/sections/CallToAction";
 
 const route = PILLAR_ROUTES.recordToReport;
@@ -78,6 +80,12 @@ export default function Page() {
         tone="purple"
       />
       <ValueAssessmentTeaser />
+      <FaqSection
+        eyebrow="R2R FAQ"
+        title={<>Record-to-Report, <span className="text-white/40">answered.</span></>}
+        faqs={R2R_FAQS}
+        className="bg-[var(--bg-secondary)]/40 border-y border-white/[0.04]"
+      />
       <CallToAction />
     </>
   );

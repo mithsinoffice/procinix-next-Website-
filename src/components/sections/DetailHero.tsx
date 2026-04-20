@@ -23,6 +23,9 @@ type Props = {
   tags?: string[];
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
+  /** When true, skip the top padding used to clear the fixed nav — e.g., when
+   *  a Breadcrumbs component already takes care of that offset. */
+  withBreadcrumbs?: boolean;
 };
 
 /** Rich hero used across detail pages (module, industry, region, solution). */
@@ -35,13 +38,26 @@ export function DetailHero({
   tags,
   primaryCta = { label: "Book a Demo", href: CORE_ROUTES.bookDemo.path },
   secondaryCta = { label: "Value Assessment", href: CORE_ROUTES.roi.path },
+  withBreadcrumbs = false,
 }: Props) {
   const tone = toneVar[eyebrowTone];
   return (
-    <section className="relative isolate overflow-hidden pt-[72px] min-h-[82vh] flex items-center">
+    <section
+      className={
+        "relative isolate overflow-hidden flex items-center " +
+        (withBreadcrumbs
+          ? "min-h-[calc(82vh-72px)]"
+          : "pt-[72px] min-h-[82vh]")
+      }
+    >
       <AuroraBackground intensity="soft" />
       <GridLines />
-      <Container size="wide" className="relative z-10 py-20 lg:py-28">
+      <Container
+        size="wide"
+        className={
+          "relative z-10 " + (withBreadcrumbs ? "py-12 lg:py-20" : "py-20 lg:py-28")
+        }
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <div className="lg:col-span-8">
             <Chip tone={eyebrowTone} dot className="mb-7">

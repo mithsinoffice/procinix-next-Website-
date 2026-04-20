@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AlertCircle, Sparkles, ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/primitives/Section";
 import { Card } from "@/components/primitives/Card";
+import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { DetailHero } from "@/components/sections/DetailHero";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { MODULE_ROUTES, PILLAR_ROUTES, type RouteDef, type Family } from "@/lib/routes";
@@ -52,6 +53,12 @@ export function ModuleDetail({
 
   return (
     <>
+      <Breadcrumbs
+        trail={[
+          { name: pillar.label, href: pillar.path },
+          { name: route.label, href: route.path },
+        ]}
+      />
       <DetailHero
         eyebrow={`${pillar.label} · Module`}
         eyebrowTone={tone}
@@ -59,6 +66,7 @@ export function ModuleDetail({
         description={content.tagline}
         stats={content.heroStats}
         tags={content.features.map((f) => f.title).slice(0, 4)}
+        withBreadcrumbs
       />
 
       {/* Pain points */}

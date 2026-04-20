@@ -8,6 +8,8 @@ import { FinanceFamilies } from "@/components/sections/FinanceFamilies";
 import { EnterpriseControls } from "@/components/sections/EnterpriseControls";
 import { IntegrationReadiness } from "@/components/sections/IntegrationReadiness";
 import { ValueAssessmentTeaser } from "@/components/sections/ValueAssessmentTeaser";
+import { FaqSection } from "@/components/sections/FaqSection";
+import { PLATFORM_FAQS } from "@/content/faqs";
 import { CallToAction } from "@/components/sections/CallToAction";
 
 const route = CORE_ROUTES.platform;
@@ -50,6 +52,10 @@ export default function Page() {
       <EnterpriseControls />
       <IntegrationReadiness />
       <ValueAssessmentTeaser />
+      <FaqSection
+        faqs={PLATFORM_FAQS}
+        className="bg-[var(--bg-secondary)]/40 border-y border-white/[0.04]"
+      />
       <CallToAction />
     </>
   );

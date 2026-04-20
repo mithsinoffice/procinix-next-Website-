@@ -8,6 +8,8 @@ import { AgenticAIOutcomes } from "@/components/sections/AgenticAIOutcomes";
 import { ValueAssessmentTeaser } from "@/components/sections/ValueAssessmentTeaser";
 import { CapabilityGrid } from "@/components/sections/CapabilityGrid";
 import { SearchTermsBand } from "@/components/sections/SearchTermsBand";
+import { FaqSection } from "@/components/sections/FaqSection";
+import { HOME_FAQS } from "@/content/faqs";
 import { WhyProcinix } from "@/components/sections/WhyProcinix";
 import { IndustryStrip } from "@/components/sections/IndustryStrip";
 import { GlobalStrip } from "@/components/sections/GlobalStrip";
@@ -44,6 +46,13 @@ export default function Page() {
       <WhyProcinix />
       <IndustryStrip />
       <GlobalStrip />
+      <FaqSection
+        eyebrow="Frequently asked"
+        title={<>Questions finance leaders <span className="text-white/40">ask us.</span></>}
+        description="What Procinix does, how it's different, and how it fits into your existing stack."
+        faqs={HOME_FAQS}
+        className="bg-[var(--bg-secondary)]/40 border-y border-white/[0.04]"
+      />
       <CallToAction />
     </>
   );

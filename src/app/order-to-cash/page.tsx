@@ -17,6 +17,8 @@ import { PillarFlow } from "@/components/sections/PillarFlow";
 import { PillarModules } from "@/components/sections/PillarModules";
 import { ValueDrivers } from "@/components/sections/ValueDrivers";
 import { ValueAssessmentTeaser } from "@/components/sections/ValueAssessmentTeaser";
+import { FaqSection } from "@/components/sections/FaqSection";
+import { O2C_FAQS } from "@/content/faqs";
 import { CallToAction } from "@/components/sections/CallToAction";
 
 const route = PILLAR_ROUTES.orderToCash;
@@ -78,6 +80,12 @@ export default function Page() {
         tone="amber"
       />
       <ValueAssessmentTeaser />
+      <FaqSection
+        eyebrow="O2C FAQ"
+        title={<>Order-to-Cash, <span className="text-white/40">answered.</span></>}
+        faqs={O2C_FAQS}
+        className="bg-[var(--bg-secondary)]/40 border-y border-white/[0.04]"
+      />
       <CallToAction />
     </>
   );

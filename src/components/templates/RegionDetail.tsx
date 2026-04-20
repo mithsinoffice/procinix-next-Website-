@@ -2,9 +2,10 @@ import Link from "next/link";
 import { ShieldCheck, AlertCircle, ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/primitives/Section";
 import { Card } from "@/components/primitives/Card";
+import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { DetailHero } from "@/components/sections/DetailHero";
 import { CallToAction } from "@/components/sections/CallToAction";
-import { MODULE_ROUTES, type RouteDef } from "@/lib/routes";
+import { CORE_ROUTES, MODULE_ROUTES, type RouteDef } from "@/lib/routes";
 import type { RegionContent } from "@/content/types";
 import { iconForModule } from "@/lib/module-icons";
 
@@ -26,12 +27,19 @@ export function RegionDetail({
 
   return (
     <>
+      <Breadcrumbs
+        trail={[
+          { name: "Global", href: CORE_ROUTES.global.path },
+          { name: route.label, href: route.path },
+        ]}
+      />
       <DetailHero
         eyebrow="Global Coverage · Region"
         eyebrowTone="teal"
         title={<>{route.label}</>}
         description={content.tagline}
         tags={content.compliance.slice(0, 5)}
+        withBreadcrumbs
       />
 
       {/* Compliance */}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AlertCircle, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Section } from "@/components/primitives/Section";
 import { Card } from "@/components/primitives/Card";
+import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { DetailHero } from "@/components/sections/DetailHero";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { MODULE_ROUTES, type RouteDef } from "@/lib/routes";
@@ -26,12 +27,19 @@ export function SolutionDetail({
 
   return (
     <>
+      <Breadcrumbs
+        trail={[
+          { name: "Solutions", href: "/#capabilities-glossary" },
+          { name: route.label, href: route.path },
+        ]}
+      />
       <DetailHero
         eyebrow={`${content.region} · ${content.focus}`}
         eyebrowTone="amber"
         title={<>{route.label}</>}
         description={content.tagline}
         tags={content.capabilities.slice(0, 4)}
+        withBreadcrumbs
       />
 
       {/* Pain points */}

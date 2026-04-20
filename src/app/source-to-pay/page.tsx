@@ -18,6 +18,8 @@ import { PillarFlow } from "@/components/sections/PillarFlow";
 import { PillarModules } from "@/components/sections/PillarModules";
 import { ValueDrivers } from "@/components/sections/ValueDrivers";
 import { ValueAssessmentTeaser } from "@/components/sections/ValueAssessmentTeaser";
+import { FaqSection } from "@/components/sections/FaqSection";
+import { S2P_FAQS } from "@/content/faqs";
 import { CallToAction } from "@/components/sections/CallToAction";
 
 const route = PILLAR_ROUTES.sourceToPay;
@@ -80,6 +82,12 @@ export default function Page() {
         tone="teal"
       />
       <ValueAssessmentTeaser />
+      <FaqSection
+        eyebrow="S2P / P2P FAQ"
+        title={<>Source-to-Pay, <span className="text-white/40">answered.</span></>}
+        faqs={S2P_FAQS}
+        className="bg-[var(--bg-secondary)]/40 border-y border-white/[0.04]"
+      />
       <CallToAction />
     </>
   );
