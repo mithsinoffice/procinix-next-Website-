@@ -7,6 +7,7 @@ import { FinanceFamilies } from "@/components/sections/FinanceFamilies";
 import { AgenticAIOutcomes } from "@/components/sections/AgenticAIOutcomes";
 import { ValueAssessmentTeaser } from "@/components/sections/ValueAssessmentTeaser";
 import { CapabilityGrid } from "@/components/sections/CapabilityGrid";
+import { SearchTermsBand } from "@/components/sections/SearchTermsBand";
 import { WhyProcinix } from "@/components/sections/WhyProcinix";
 import { IndustryStrip } from "@/components/sections/IndustryStrip";
 import { GlobalStrip } from "@/components/sections/GlobalStrip";
@@ -39,6 +40,7 @@ export default function Page() {
       <AgenticAIOutcomes />
       <ValueAssessmentTeaser />
       <CapabilityGrid />
+      <SearchTermsBand />
       <WhyProcinix />
       <IndustryStrip />
       <GlobalStrip />
