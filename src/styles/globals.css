@@ -1,0 +1,230 @@
+/* Procinix dark-teal premium design tokens. */
+
+:root {
+  --font-size: 16px;
+
+  /* Background layers */
+  --bg-primary: #041F22;
+  --bg-secondary: #06272B;
+  --bg-surface: #08363B;
+  --bg-elevated: #0B4146;
+
+  /* Accents */
+  --accent-teal: #11C5C6;
+  --accent-teal-bright: #18D6D3;
+  --accent-amber: #F0A63A;
+  --accent-purple: #8F63F8;
+
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.72);
+  --text-muted: rgba(255, 255, 255, 0.48);
+  --text-faint: rgba(255, 255, 255, 0.28);
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.22);
+
+  /* Gradients */
+  --gradient-teal-glow: radial-gradient(
+    60% 50% at 50% 0%,
+    rgba(17, 197, 198, 0.28),
+    rgba(17, 197, 198, 0) 70%
+  );
+  --gradient-purple-glow: radial-gradient(
+    50% 60% at 80% 20%,
+    rgba(143, 99, 248, 0.22),
+    rgba(143, 99, 248, 0) 70%
+  );
+  --gradient-amber-glow: radial-gradient(
+    40% 40% at 10% 80%,
+    rgba(240, 166, 58, 0.18),
+    rgba(240, 166, 58, 0) 70%
+  );
+
+  /* Shadows */
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 16px 50px rgba(0, 0, 0, 0.45);
+  --shadow-cta: 0 10px 30px rgba(240, 166, 58, 0.28);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-pill: 999px;
+}
+
+@theme inline {
+  /* Wire token vars into Tailwind's color system so utilities work. */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-elevated: var(--bg-elevated);
+
+  --color-accent-teal: var(--accent-teal);
+  --color-accent-teal-bright: var(--accent-teal-bright);
+  --color-accent-amber: var(--accent-amber);
+  --color-accent-purple: var(--accent-purple);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+}
+
+/* Base typography + resets */
+html {
+  font-size: var(--font-size);
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv11", "ss01", "ss03";
+}
+
+::selection {
+  background: var(--accent-teal);
+  color: var(--bg-primary);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent-teal-bright);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Display typography helpers */
+.font-display {
+  font-feature-settings: "ss01", "ss03", "cv11";
+  letter-spacing: -0.02em;
+}
+
+/* Aurora animation for hero/AI section backgrounds */
+@keyframes aurora-drift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.9;
+  }
+  33% {
+    transform: translate3d(4%, -3%, 0) scale(1.08);
+    opacity: 1;
+  }
+  66% {
+    transform: translate3d(-3%, 4%, 0) scale(0.94);
+    opacity: 0.85;
+  }
+}
+
+@keyframes aurora-drift-slow {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-5%, 3%, 0) scale(1.1);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.aurora-a {
+  animation: aurora-drift 18s ease-in-out infinite;
+}
+.aurora-b {
+  animation: aurora-drift-slow 24s ease-in-out infinite;
+}
+.aurora-c {
+  animation: aurora-drift 30s ease-in-out infinite reverse;
+}
+
+/* Noise overlay — tiny inline SVG turbulence */
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Subtle horizontal rule */
+.hr-fade {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border-default),
+    transparent
+  );
+}
+
+/* Shimmer text for prestige accents */
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    #ffffff 25%,
+    rgba(255, 255, 255, 0.6) 50%,
+    #ffffff 75%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s ease-in-out infinite;
+}
+
+/* Scrollbar (webkit) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-surface);
+  border-radius: 999px;
+  border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-elevated);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-a, .aurora-b, .aurora-c, .text-shimmer {
+    animation: none !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

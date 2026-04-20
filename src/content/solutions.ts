@@ -1,0 +1,187 @@
+import type { SolutionContent } from "./types";
+
+export const SOLUTION_CONTENT: Record<string, SolutionContent> = {
+  "india-p2p-software": {
+    slug: "india-p2p-software",
+    region: "India",
+    focus: "Procure-to-Pay",
+    tagline: "Procure-to-Pay software for India enterprises — GST, e-invoicing, multi-entity.",
+    painPoints: [
+      "GST compliance across multi-state P2P",
+      "E-invoicing (IRN/QR) integrated with AP",
+      "Vendor onboarding and master data quality",
+      "Branch-level procurement with central control",
+    ],
+    capabilities: [
+      "Structured requisition-to-PO with budget check",
+      "AI invoice capture with GSTIN and HSN validation",
+      "3-way matching and exception workflow",
+      "Payments via banks + TDS handled in-line",
+    ],
+    outcomes: [
+      { metric: "Lower cost per invoice", detail: "Touchless processing on structured flows." },
+      { metric: "GST accuracy", detail: "Tax codes, returns, and reconciliations on schedule." },
+      { metric: "Vendor trust", detail: "On-time payment and fewer disputes." },
+    ],
+    relevantModuleSlugs: [
+      "procurement",
+      "accounts-payable",
+      "payments",
+      "vendor-reconciliation",
+      "budgeting-spend-control",
+    ],
+  },
+  "uae-accounts-payable-automation": {
+    slug: "uae-accounts-payable-automation",
+    region: "UAE",
+    focus: "Accounts Payable Automation",
+    tagline: "AP automation for UAE — VAT, multi-entity, shared services.",
+    painPoints: [
+      "VAT treatment across free zone and mainland entities",
+      "Regional shared services supporting GCC",
+      "Multi-bank payment operations in AED, USD, and others",
+      "Vendor master quality across jurisdictions",
+    ],
+    capabilities: [
+      "AI invoice capture with TRN and VAT validation",
+      "Policy-aware approvals across entities",
+      "Multi-bank payment orchestration in multiple currencies",
+      "Shared-service-friendly exception workflows",
+    ],
+    outcomes: [
+      { metric: "Lower cost per invoice", detail: "Touchless processing across entities." },
+      { metric: "VAT confidence", detail: "Correct codes and returns by entity type." },
+      { metric: "SSC efficiency", detail: "Regional team handles more entities, consistently." },
+    ],
+    relevantModuleSlugs: [
+      "accounts-payable",
+      "payments",
+      "vendor-reconciliation",
+      "travel-expense",
+      "budgeting-spend-control",
+    ],
+  },
+  "saudi-finance-automation": {
+    slug: "saudi-finance-automation",
+    region: "Saudi Arabia",
+    focus: "Finance Automation",
+    tagline: "Finance automation for Saudi Arabia — ZATCA, multi-entity, enterprise scale.",
+    painPoints: [
+      "ZATCA Phase 2 e-invoicing compliance",
+      "Multi-entity Kingdom operations",
+      "Local content, Saudization, and regulatory reporting",
+      "Consolidation in Saudi Riyal with group reporting",
+    ],
+    capabilities: [
+      "ZATCA Phase 1 & 2 e-invoicing built in",
+      "End-to-end S2P, O2C, R2R on one platform",
+      "Multi-entity consolidation with elimination",
+      "Real-time visibility for Kingdom-wide operations",
+    ],
+    outcomes: [
+      { metric: "ZATCA compliant", detail: "E-invoicing and clearance handled operationally." },
+      { metric: "Clean close", detail: "Month-end and consolidation on schedule." },
+      { metric: "Enterprise scale", detail: "Configurable for holding, operating, and trading entities." },
+    ],
+    relevantModuleSlugs: [
+      "billing-invoicing",
+      "accounts-payable",
+      "accounts-receivable",
+      "month-end-close",
+      "consolidation",
+    ],
+  },
+  "singapore-invoice-automation": {
+    slug: "singapore-invoice-automation",
+    region: "Singapore",
+    focus: "Invoice Automation",
+    tagline: "Invoice automation for Singapore — IMDA InvoiceNow ready.",
+    painPoints: [
+      "InvoiceNow / Peppol adoption across trading partners",
+      "Regional HQ supporting multiple APAC entities",
+      "Multi-currency and intercompany complexity",
+      "IRAS filings and cross-border controls",
+    ],
+    capabilities: [
+      "Peppol-compliant invoice sending and receiving",
+      "AI invoice capture for inbound non-Peppol suppliers",
+      "Intercompany matching and elimination",
+      "Multi-currency AR/AP with live FX",
+    ],
+    outcomes: [
+      { metric: "InvoiceNow adoption", detail: "Peppol flows live with your largest partners." },
+      { metric: "APAC visibility", detail: "Entity and currency rollups available continuously." },
+      { metric: "IRAS readiness", detail: "GST and reporting cleanly supported." },
+    ],
+    relevantModuleSlugs: [
+      "billing-invoicing",
+      "accounts-payable",
+      "accounts-receivable",
+      "consolidation",
+      "cash-flow-visibility",
+    ],
+  },
+  "australia-expense-management": {
+    slug: "australia-expense-management",
+    region: "Australia",
+    focus: "Expense Management",
+    tagline: "Expense management for Australian enterprises — Peppol, multi-state.",
+    painPoints: [
+      "Mobile-first employee base across states",
+      "Policy variability and per-diem handling",
+      "Corporate card integration and reconciliation",
+      "BAS and GST on travel/expense accurately coded",
+    ],
+    capabilities: [
+      "Mobile capture with OCR and policy checks",
+      "Corporate card feeds auto-matched",
+      "Configurable per-diem and category rules",
+      "Multi-state compliance and reporting",
+    ],
+    outcomes: [
+      { metric: "Faster reimbursement", detail: "Employees paid sooner; finance touches fewer reports." },
+      { metric: "Clean BAS", detail: "Tax coding accurate at the source." },
+      { metric: "Better employee experience", detail: "Mobile-first capture; minimal chasing." },
+    ],
+    relevantModuleSlugs: [
+      "travel-expense",
+      "petty-cash",
+      "accounts-payable",
+      "payments",
+      "budgeting-spend-control",
+    ],
+  },
+  "usa-finance-operations-platform": {
+    slug: "usa-finance-operations-platform",
+    region: "USA",
+    focus: "Finance Operations Platform",
+    tagline: "Finance operations platform for US enterprises — multi-state, ACH, ERP-ready.",
+    painPoints: [
+      "Multi-state sales/use tax complexity",
+      "SOX controls for public or IPO-bound companies",
+      "ACH/wire payment control and fraud prevention",
+      "ERP diversity across business units",
+    ],
+    capabilities: [
+      "Full S2P, O2C, R2R coverage — one platform",
+      "SOX-grade controls and evidence",
+      "ACH/wire payment orchestration with fraud controls",
+      "ERP-agnostic integration layer",
+    ],
+    outcomes: [
+      { metric: "SOX comfort", detail: "Controls, segregation of duty, and evidence by design." },
+      { metric: "Payment security", detail: "Beneficiary and sanctions validation before release." },
+      { metric: "Enterprise flexibility", detail: "Configurable across BUs and ERPs." },
+    ],
+    relevantModuleSlugs: [
+      "accounts-payable",
+      "payments",
+      "accounts-receivable",
+      "collections",
+      "month-end-close",
+      "consolidation",
+    ],
+  },
+};
+
+export const ALL_SOLUTION_SLUGS = Object.keys(SOLUTION_CONTENT);
