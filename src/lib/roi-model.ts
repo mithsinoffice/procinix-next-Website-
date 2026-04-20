@@ -38,7 +38,7 @@ export type InputSpec = {
 export const COMMON_INPUTS: InputSpec[] = [
   { key: "entities", label: "Number of entities in scope", defaultValue: 3, step: 1, min: 1 },
   { key: "ftes", label: "FTEs on this function", defaultValue: 10, step: 1, min: 0 },
-  { key: "loadedCost", label: "Avg loaded cost per FTE (annual, USD)", defaultValue: 35000, step: 1000, suffix: "$" },
+  { key: "loadedCost", label: "Avg loaded cost per FTE (annual, ₹)", defaultValue: 1_500_000, step: 50_000, suffix: "₹" },
   { key: "effortPct", label: "% effort spent on this module", defaultValue: 60, step: 5, min: 0, max: 100, suffix: "%" },
 ];
 
@@ -96,7 +96,7 @@ export const MODULE_ROI: Record<string, ModuleRoiSpec> = {
     slug: "accounts-receivable",
     gainPct: 45,
     extraInputs: [
-      { key: "annualRevenue", label: "Annual revenue (USD)", defaultValue: 100_000_000, step: 1_000_000, suffix: "$" },
+      { key: "annualRevenue", label: "Annual revenue (₹)", defaultValue: 1_000_000_000, step: 10_000_000, suffix: "₹" },
       { key: "currentDso", label: "Current DSO (days)", defaultValue: 55, step: 1, suffix: "d" },
       { key: "targetDso", label: "Target DSO (days)", defaultValue: 48, step: 1, suffix: "d" },
     ],
@@ -105,7 +105,7 @@ export const MODULE_ROI: Record<string, ModuleRoiSpec> = {
     slug: "collections",
     gainPct: 35,
     extraInputs: [
-      { key: "annualRevenue", label: "Annual revenue (USD)", defaultValue: 100_000_000, step: 1_000_000, suffix: "$" },
+      { key: "annualRevenue", label: "Annual revenue (₹)", defaultValue: 1_000_000_000, step: 10_000_000, suffix: "₹" },
       { key: "currentDso", label: "Current DSO (days)", defaultValue: 55, step: 1, suffix: "d" },
       { key: "targetDso", label: "Target DSO (days)", defaultValue: 48, step: 1, suffix: "d" },
     ],
@@ -217,9 +217,14 @@ function round1(n: number) {
   return Math.round(n * 10) / 10;
 }
 
-export function formatUsd(n: number): string {
-  if (n === 0) return "$0";
-  if (n >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`;
-  if (n >= 1_000) return `$${(n / 1_000).toFixed(0)}K`;
-  return `$${n.toFixed(0)}`;
+/**
+ * Format a rupee amount using Indian convention: crore (Cr) for ≥1,00,00,000,
+ * lakh (L) for ≥1,00,000, thousand (K) otherwise.
+ */
+export function formatInr(n: number): string {
+  if (n === 0) return "₹0";
+  if (n >= 10_000_000) return `₹${(n / 10_000_000).toFixed(2)} Cr`;
+  if (n >= 100_000) return `₹${(n / 100_000).toFixed(1)} L`;
+  if (n >= 1_000) return `₹${(n / 1_000).toFixed(0)}K`;
+  return `₹${n.toFixed(0)}`;
 }

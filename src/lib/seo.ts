@@ -96,7 +96,7 @@ export function softwareApplicationJsonLd(params: {
     url: params.url,
     applicationCategory: params.category ?? "BusinessApplication",
     operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
   };
 }
 

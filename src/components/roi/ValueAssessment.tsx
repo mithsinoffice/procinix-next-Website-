@@ -26,7 +26,7 @@ import {
   COMMON_INPUTS,
   MODULE_ROI,
   calculateRoi,
-  formatUsd,
+  formatInr,
   type RoiInputs,
 } from "@/lib/roi-model";
 import { iconForModule } from "@/lib/module-icons";
@@ -327,9 +327,9 @@ export function ValueAssessment() {
                       )}
                     </label>
                     <div className="relative flex items-center">
-                      {spec.suffix === "$" && (
+                      {spec.suffix === "₹" && (
                         <span className="absolute left-4 text-[14px] text-white/40">
-                          $
+                          ₹
                         </span>
                       )}
                       <input
@@ -346,10 +346,10 @@ export function ValueAssessment() {
                         }
                         className={
                           "w-full rounded-lg border border-white/10 bg-[var(--bg-primary)] text-white text-[15px] focus:border-[var(--accent-teal-bright)] focus:outline-none transition-colors " +
-                          (spec.suffix === "$" ? "pl-8 pr-4 py-3" : "px-4 py-3")
+                          (spec.suffix === "₹" ? "pl-8 pr-4 py-3" : "px-4 py-3")
                         }
                       />
-                      {spec.suffix && spec.suffix !== "$" && (
+                      {spec.suffix && spec.suffix !== "₹" && (
                         <span className="absolute right-4 text-[13px] text-white/40">
                           {spec.suffix}
                         </span>
@@ -384,13 +384,13 @@ export function ValueAssessment() {
                 icon={<Wallet className="h-4 w-4" />}
                 tone={tone}
                 label="Monthly Savings"
-                value={formatUsd(output.monthlySavings)}
+                value={formatInr(output.monthlySavings)}
               />
               <OutcomeCard
                 icon={<Wallet className="h-4 w-4" />}
                 tone={tone}
                 label="Annual Savings"
-                value={formatUsd(output.annualSavings)}
+                value={formatInr(output.annualSavings)}
                 highlight
               />
               <OutcomeCard
@@ -416,7 +416,7 @@ export function ValueAssessment() {
                     icon={<Wallet className="h-4 w-4" />}
                     tone={tone}
                     label="Cash Released (one-time)"
-                    value={formatUsd(output.cashReleased)}
+                    value={formatInr(output.cashReleased)}
                     highlight
                   />
                 )}

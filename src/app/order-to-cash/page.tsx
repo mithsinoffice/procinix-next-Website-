@@ -3,7 +3,7 @@ import {
   PackageCheck,
   Receipt,
   HandCoins,
-  DollarSign,
+  IndianRupee,
   Users,
   TrendingDown,
   Timer,
@@ -32,7 +32,7 @@ const flowSteps = [
   { icon: <PackageCheck className="h-5 w-5" />, label: "Order", body: "Multi-channel order capture with upfront validation." },
   { icon: <Receipt className="h-5 w-5" />, label: "Bill", body: "Accurate, compliant billing and e-invoicing." },
   { icon: <HandCoins className="h-5 w-5" />, label: "Collect", body: "Segmented collections that reduce DSO intelligently." },
-  { icon: <DollarSign className="h-5 w-5" />, label: "Apply", body: "Auto cash application with remittance parsing." },
+  { icon: <IndianRupee className="h-5 w-5" />, label: "Apply", body: "Auto cash application with remittance parsing." },
   { icon: <Users className="h-5 w-5" />, label: "Reconcile", body: "Customer statements matched and disputes resolved." },
 ];
 

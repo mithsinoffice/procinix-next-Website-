@@ -11,7 +11,7 @@ import {
   Building2,
   PackageCheck,
   Receipt,
-  DollarSign,
+  IndianRupee,
   HandCoins,
   Users,
   CalendarCheck,
@@ -37,7 +37,7 @@ export const MODULE_ICONS: Record<string, ReactNode> = {
   // O2C
   "order-management": <PackageCheck className="h-4 w-4" />,
   "billing-invoicing": <Receipt className="h-4 w-4" />,
-  "accounts-receivable": <DollarSign className="h-4 w-4" />,
+  "accounts-receivable": <IndianRupee className="h-4 w-4" />,
   collections: <HandCoins className="h-4 w-4" />,
   "customer-reconciliation": <Users className="h-4 w-4" />,
   // R2R
