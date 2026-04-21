@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
   formatDetection: { email: false, address: false, telephone: false },
-  // Favicon + apple-icon auto-generated via app/icon.svg + app/apple-icon.tsx
+  // Favicon + apple-icon auto-generated via app/icon.png + app/apple-icon.png
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
