@@ -261,7 +261,7 @@ function PlatformFlyout() {
         />
         <FlyoutColumn
           pillar={PILLAR_ROUTES.recordToReport}
-          modules={MODULES_BY_FAMILY.r2r.slice(0, 6)}
+          modules={MODULES_BY_FAMILY.r2r.slice(0, 7)}
         />
       </div>
     </div>

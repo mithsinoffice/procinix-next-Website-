@@ -78,7 +78,7 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
           "Yes — the approval matrix is fully policy-driven: thresholds, categories, entities, and delegations are all configurable without custom development, so procurement policy stays enforced as the organization scales.",
       },
     ],
-    relatedSlugs: ["sourcing", "accounts-payable", "budgeting-spend-control"],
+    relatedSlugs: ["sourcing", "accounts-payable", "budgeting-spend-control", "inventory-management"],
   },
   "accounts-payable": {
     slug: "accounts-payable",
@@ -289,7 +289,7 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
           "Yes — statement import and matching scale across hundreds of vendors and multiple entities, with the same rules and audit trail applied consistently everywhere.",
       },
     ],
-    relatedSlugs: ["accounts-payable", "payments", "customer-reconciliation"],
+    relatedSlugs: ["accounts-payable", "payments", "customer-reconciliation", "vendor-onboarding"],
   },
   "budgeting-spend-control": {
     slug: "budgeting-spend-control",
@@ -393,6 +393,122 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
       },
     ],
     relatedSlugs: ["procurement", "accounts-payable", "month-end-close"],
+  },
+  "inventory-management": {
+    slug: "inventory-management",
+    family: "s2p",
+    tagline: "Inventory that ties out — from receipt to reconciliation.",
+    heroStats: [
+      { value: "100%", label: "GRN-to-ledger match" },
+      { value: "Real-time", label: "multi-location stock visibility" },
+    ],
+    metaDescription:
+      "Inventory management automation — GRN-to-ledger sync, multi-location stock visibility, automated valuation, and physical-to-book reconciliation.",
+    painPoints: [
+      "Physical stock and book inventory drift apart over time",
+      "GRN mismatches break 3-way matching in AP",
+      "No real-time visibility across warehouses or locations",
+      "Stock valuation at close is a manual, error-prone exercise",
+    ],
+    features: [
+      { title: "GRN-to-ledger sync", body: "Goods receipts flow straight into the inventory ledger — no re-keying, no lag." },
+      { title: "Multi-location visibility", body: "Live stock positions across warehouses, plants, and stores in one view." },
+      { title: "Automated valuation", body: "FIFO, weighted-average, or standard cost — applied consistently, every period." },
+      { title: "Variance and reconciliation flags", body: "Physical-to-book mismatches surfaced early, with root cause evidence attached." },
+    ],
+    outcomes: [
+      { metric: "Fewer 3-way match exceptions", detail: "Clean GRN data means fewer AP holds and disputes." },
+      { metric: "Cleaner stock valuation at close", detail: "Valuation runs on policy, not a spreadsheet scramble." },
+      { metric: "Faster physical-to-book reconciliation", detail: "Variances caught continuously, not just at count time." },
+    ],
+    aiAngle:
+      "Agents reconcile goods receipts to the inventory ledger, flag valuation and quantity variances before they reach the books, and predict reorder points from consumption patterns.",
+    faq: [
+      {
+        question: "What does inventory management automation cover?",
+        answer:
+          "It keeps the inventory ledger in sync with goods receipts and issues automatically, gives real-time stock visibility across every warehouse or location, applies consistent valuation methods, and reconciles physical counts to the book — instead of periodic manual stock-takes and spreadsheet valuation.",
+      },
+      {
+        question: "How does this improve 3-way matching in AP?",
+        answer:
+          "Because goods receipts post to the inventory ledger the moment they happen, AP's 3-way match (PO, invoice, GRN) has clean, timely GRN data to match against — reducing the exception volume that comes from delayed or inconsistent receipt records.",
+      },
+      {
+        question: "Can it handle multiple warehouses or locations?",
+        answer:
+          "Yes — stock positions are tracked per location with a consolidated multi-location view, so a multi-site or multi-entity operation sees one accurate picture instead of reconciling location-by-location reports manually.",
+      },
+      {
+        question: "Which valuation methods are supported?",
+        answer:
+          "FIFO, weighted-average, and standard costing are all configurable per category or entity, applied consistently every period so valuation at close is policy-driven rather than a manual recalculation.",
+      },
+      {
+        question: "How does automation catch stock discrepancies earlier?",
+        answer:
+          "Physical-to-book variances are flagged as they occur rather than discovered at the next scheduled count, with the underlying transaction evidence attached so the root cause is clear immediately.",
+      },
+    ],
+    relatedSlugs: ["procurement", "fixed-assets", "month-end-close"],
+  },
+  "vendor-onboarding": {
+    slug: "vendor-onboarding",
+    family: "s2p",
+    tagline: "Vendors onboarded, verified, and audit-ready — before the first PO.",
+    heroStats: [
+      { value: "50%+", label: "faster onboarding cycle" },
+      { value: "100%", label: "audit-ready KYC trail" },
+    ],
+    metaDescription:
+      "Vendor onboarding automation with a self-service portal, configurable KYC and compliance workflows, document tracking, and vendor master governance.",
+    painPoints: [
+      "Vendor documents chased manually over email",
+      "KYC and compliance checks applied inconsistently across entities",
+      "No vendor self-service — procurement does all the paperwork",
+      "Duplicate and inactive vendor records pollute the master",
+    ],
+    features: [
+      { title: "Self-service vendor portal", body: "Vendors submit and update their own documents, status, and bank details." },
+      { title: "Configurable KYC workflows", body: "Tax registration, bank verification, and sanctions screening — per entity, per policy." },
+      { title: "Document expiry tracking", body: "Licenses, certifications, and compliance documents renewed before they lapse, not after." },
+      { title: "Vendor master governance", body: "Duplicate detection and risk scoring keep the vendor master clean at scale." },
+    ],
+    outcomes: [
+      { metric: "Faster onboarding cycle", detail: "Vendors go live in days, not weeks of email back-and-forth." },
+      { metric: "Cleaner vendor master", detail: "Duplicates and inactive records caught before they cause payment errors." },
+      { metric: "Fewer compliance gaps at audit", detail: "Every vendor's KYC trail is complete and available on demand." },
+    ],
+    aiAngle:
+      "Agents validate submitted documents against required checklists, flag sanctions or risk hits automatically, and detect duplicate vendor records before they ever enter the master.",
+    faq: [
+      {
+        question: "What is vendor onboarding automation?",
+        answer:
+          "It replaces email-based document chasing with a self-service portal where vendors submit tax registration, banking, and compliance documents directly, routed through configurable KYC and approval workflows — so procurement isn't manually assembling every vendor file.",
+      },
+      {
+        question: "How does vendor KYC verification work?",
+        answer:
+          "KYC and compliance checks — tax registration validity, bank account verification, sanctions and watchlist screening — run per your policy and per entity, with every check and its evidence logged for audit, instead of being handled ad hoc by whoever onboarded the vendor.",
+      },
+      {
+        question: "Does this include a vendor self-service portal?",
+        answer:
+          "Yes — vendors update their own documents, banking details, and compliance status directly, with expiring documents (licenses, certifications, tax registrations) flagged for renewal automatically rather than discovered as expired mid-transaction.",
+      },
+      {
+        question: "How does it support vendor governance and reduce duplicate records?",
+        answer:
+          "New vendor submissions are checked against the existing master for duplicates and risk signals before they're created, keeping the vendor master clean as it scales — a common source of payment errors and audit findings when done manually.",
+      },
+      {
+        question: "Is this suitable for multi-entity, multi-country vendor onboarding?",
+        answer:
+          "Yes — KYC requirements, approval routing, and document checklists are all entity- and country-aware, so a shared-services or multi-country procurement team runs one onboarding process instead of ad hoc local variations.",
+      },
+    ],
+    relatedSlugs: ["vendor-reconciliation", "procurement", "sourcing"],
   },
 
   // ------------ Order-to-Cash ------------
@@ -670,7 +786,7 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
           "Every task, reconciliation, journal, and exception is documented end-to-end with owner, timestamp, and evidence, so audit support during and after close is a matter of pulling records rather than reconstructing them.",
       },
     ],
-    relatedSlugs: ["consolidation", "provisions-accruals", "cash-flow-visibility"],
+    relatedSlugs: ["consolidation", "provisions-accruals", "cash-flow-visibility", "bank-reconciliation"],
   },
   "cash-flow-visibility": {
     slug: "cash-flow-visibility",
@@ -849,6 +965,69 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     aiAngle:
       "Agents draft PBC responses from existing evidence, flag audit risks from anomalies in the ledger, and surface statutory vs. management differences for review.",
     relatedSlugs: ["month-end-close", "consolidation", "provisions-accruals"],
+  },
+  "bank-reconciliation": {
+    slug: "bank-reconciliation",
+    family: "r2r",
+    tagline: "Bank statements reconciled daily — not just at month-end.",
+    heroStats: [
+      { value: "99%+", label: "auto-match rate" },
+      { value: "Daily", label: "reconciliation cadence" },
+    ],
+    metaDescription:
+      "Bank reconciliation automation — auto-imported statements, rule-based and AI transaction matching, and multi-bank, multi-entity exception handling.",
+    painPoints: [
+      "Bank statements reconciled manually in spreadsheets",
+      "Unmatched and unidentified transactions pile up",
+      "Multi-bank, multi-entity reconciliation is fragmented",
+      "Reconciliation only happens at close, hiding errors and fraud longer",
+    ],
+    features: [
+      { title: "Automated statement import", body: "MT940, camt.053, and bank API feeds ingested on a schedule — no manual downloads." },
+      { title: "Rule-based and AI matching", body: "Transactions matched to GL, AP, and AR records automatically, learning patterns over time." },
+      { title: "Exception workflow", body: "Unmatched items routed for review with the context needed to resolve them fast." },
+      { title: "Multi-bank, multi-entity view", body: "Every account, every entity, reconciled and visible in one consolidated view." },
+    ],
+    outcomes: [
+      { metric: "Daily reconciliation, not monthly", detail: "Discrepancies caught the day they happen, not weeks later." },
+      { metric: "Faster close", detail: "Bank reconciliation stops being a bottleneck at month-end." },
+      { metric: "Earlier fraud and error detection", detail: "Anomalies surface in near real time instead of at period-end review." },
+    ],
+    aiAngle:
+      "Agents match bank lines to GL, AP, and AR transactions, learn matching patterns as they go, and flag anomalies — duplicate payments, unusual transactions — as they occur, not weeks later.",
+    faq: [
+      {
+        question: "What is bank reconciliation automation?",
+        answer:
+          "It automatically imports bank statements and matches each transaction to the corresponding GL, AP, or AR entry — using rules and AI matching that improve over time — so reconciliation happens continuously instead of being a manual, once-a-month spreadsheet exercise.",
+      },
+      {
+        question: "Can this run daily instead of just at month-end?",
+        answer:
+          "Yes — that's the core benefit. Statements are pulled on a schedule (daily or more frequently) so discrepancies, duplicate payments, or unusual transactions are caught close to when they happen, not discovered weeks later during the close crunch.",
+      },
+      {
+        question: "Does it support multiple banks and entities?",
+        answer:
+          "Yes — accounts across multiple banks and legal entities reconcile into one consolidated view, so a multi-entity or multi-country treasury function isn't stitching together separate bank portals and spreadsheets.",
+      },
+      {
+        question: "What bank statement formats are supported?",
+        answer:
+          "Standard formats like MT940 and camt.053, along with direct bank API feeds where available, are ingested automatically — matching the connectivity options most banks already support.",
+      },
+      {
+        question: "How does bank reconciliation automation help with fraud detection?",
+        answer:
+          "Because matching runs continuously rather than periodically, anomalies — duplicate payments, unexpected beneficiaries, out-of-pattern amounts — are flagged close to real time, giving finance teams a much shorter window to catch and act on issues.",
+      },
+      {
+        question: "Does this connect to the month-end close process?",
+        answer:
+          "Yes — bank reconciliation is one of the reconciliation types run continuously ahead of close inside Procinix's month-end close workflow, alongside AP, AR, GL, and intercompany reconciliations, so nothing is left until the close window opens.",
+      },
+    ],
+    relatedSlugs: ["month-end-close", "cash-flow-visibility", "payments"],
   },
 };
 
