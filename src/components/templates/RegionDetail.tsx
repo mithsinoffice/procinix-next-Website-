@@ -5,6 +5,7 @@ import { Card } from "@/components/primitives/Card";
 import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { DetailHero } from "@/components/sections/DetailHero";
 import { CallToAction } from "@/components/sections/CallToAction";
+import { FaqSection } from "@/components/sections/FaqSection";
 import { CORE_ROUTES, MODULE_ROUTES, type RouteDef } from "@/lib/routes";
 import type { RegionContent } from "@/content/types";
 import { iconForModule } from "@/lib/module-icons";
@@ -131,6 +132,14 @@ export function RegionDetail({
           ))}
         </div>
       </Section>
+
+      {content.faq && content.faq.length > 0 && (
+        <FaqSection
+          eyebrow="FAQ"
+          title={<>Common questions.</>}
+          faqs={content.faq}
+        />
+      )}
 
       <CallToAction />
     </>

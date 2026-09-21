@@ -60,6 +60,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "accounts-payable",
     family: "s2p",
     tagline: "Invoice to pay — captured, matched, approved, paid.",
+    metaDescription:
+      "Accounts payable automation software with AI invoice capture, configurable 3-way matching, and exception workflows — built for multi-entity, multi-country AP teams.",
     heroStats: [
       { value: "99%+", label: "capture accuracy" },
       { value: "70%+", label: "touchless invoice rate" },
@@ -83,6 +85,38 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents auto-code invoices to GL and cost center, validate against PO and GRN, resolve tolerances, and only escalate true exceptions to humans — with the context pre-loaded.",
+    faq: [
+      {
+        question: "What is accounts payable automation?",
+        answer:
+          "Accounts payable automation replaces manual invoice entry, routing, and approval with software that captures invoice data, matches it to purchase orders and goods receipts, and routes only genuine exceptions to a human. Procinix's AP automation covers the full invoice-to-pay cycle — capture, matching, approvals, and payment handoff — in one workflow.",
+      },
+      {
+        question: "How accurate is AI invoice capture?",
+        answer:
+          "Procinix captures invoice headers and line items with 99%+ accuracy across PDF, scanned, and email formats, and in multiple languages and currencies. Captured data is validated against tax rules and vendor master data before it ever reaches a matching step.",
+      },
+      {
+        question: "Does Procinix support 2-way, 3-way, and 4-way matching?",
+        answer:
+          "Yes. Matching rules and tolerance thresholds are configurable per vendor, category, or entity, so you can run 2-way matching for low-risk spend and 3-way or 4-way matching (including goods receipt and quality inspection) for higher-risk categories — without custom development.",
+      },
+      {
+        question: "How does AP automation reduce invoice processing cost?",
+        answer:
+          "By pushing routine, policy-compliant invoices through touchless — no manual keying, no manual routing — and reserving human review for true exceptions (price variances, missing POs, duplicate risk). Most Procinix customers see cost-per-invoice fall as touchless rates climb above 70%.",
+      },
+      {
+        question: "Can this integrate with our existing ERP?",
+        answer:
+          "Procinix is built to sit alongside your ERP rather than replace it — invoices, POs, GRNs, vendor masters, and GL postings sync with common ERPs (SAP, Oracle, Microsoft Dynamics, NetSuite, Tally, and others) so AP automation adds control without a rip-and-replace project.",
+      },
+      {
+        question: "Is Procinix AP automation suitable for multi-entity, multi-country finance teams?",
+        answer:
+          "Yes — it's a core design point. Approval matrices, tax handling (including GST, VAT, and ZATCA e-invoicing), currencies, and vendor governance are all entity-aware, so a shared-services or multi-country AP team runs on one platform instead of stitching together per-country tools.",
+      },
+    ],
     relatedSlugs: ["payments", "procurement", "vendor-reconciliation"],
   },
   payments: {
@@ -291,6 +325,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "accounts-receivable",
     family: "o2c",
     tagline: "Cash applied fast. AR at enterprise scale.",
+    metaDescription:
+      "Accounts receivable automation with 90%+ auto cash application, live aging, and dispute workflows — built to cut DSO for multi-entity B2B finance teams.",
     heroStats: [
       { value: "3–7", label: "days DSO improvement" },
       { value: "90%+", label: "auto-cash-app rate" },
@@ -314,6 +350,38 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents parse remittance advice from emails, portals, and bank files; match to invoices including part-payments and deductions; escalate only what needs a human.",
+    faq: [
+      {
+        question: "What is accounts receivable automation?",
+        answer:
+          "Accounts receivable automation applies incoming cash to open invoices automatically, keeps aging and customer exposure current in real time, and routes deductions or disputes into a structured workflow — instead of a finance team manually chasing remittances in spreadsheets and email.",
+      },
+      {
+        question: "How does automated cash application work?",
+        answer:
+          "Procinix parses remittance advice from emails, customer portals, and bank files, then matches it to open invoices — including part-payments, combined payments, and deductions — reaching a 90%+ auto-match rate. Only genuinely ambiguous remittances are escalated to a person.",
+      },
+      {
+        question: "Can Procinix AR automation handle partial payments and deductions?",
+        answer:
+          "Yes. Partial payments, short-pays, and deductions are flagged, categorized, and routed into a dispute workflow with the supporting documentation attached, so nothing sits unresolved in an aging bucket.",
+      },
+      {
+        question: "How much can AR automation improve DSO?",
+        answer:
+          "Customers typically see a 3-7 day reduction in DSO once cash application and dispute resolution move off manual processes — driven by faster, more accurate posting and earlier visibility into at-risk accounts.",
+      },
+      {
+        question: "Does Procinix AR automation integrate with our ERP and banks?",
+        answer:
+          "Yes — bank statement and lockbox feeds, customer portals, and ERP systems (SAP, Oracle, Dynamics, NetSuite, and others) connect directly, so AR automation runs on your existing infrastructure rather than requiring a separate ledger.",
+      },
+      {
+        question: "Is this suitable for high-volume, multi-entity B2B billing?",
+        answer:
+          "Yes — Procinix AR automation is built for multi-entity, multi-currency B2B operations, with entity-aware aging, customer statements, and reconciliation so shared-services and regional finance teams work off one unified view of receivables.",
+      },
+    ],
     relatedSlugs: ["collections", "billing-invoicing", "customer-reconciliation"],
   },
   collections: {
@@ -372,6 +440,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "month-end-close",
     family: "r2r",
     tagline: "Close faster. With controls. Every month.",
+    metaDescription:
+      "Month-end close automation (Record-to-Report) — task orchestration, auto-reconciliations, and journal controls that cut close days for multi-entity finance teams.",
     heroStats: [
       { value: "30–50%", label: "close-days reduction" },
       { value: "100%", label: "task ownership traceability" },
@@ -395,6 +465,38 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents draft reconciliations, propose journals, and prioritize the close dashboard so controllers spend time on judgment items — not status chasing.",
+    faq: [
+      {
+        question: "What is month-end close automation?",
+        answer:
+          "Month-end close automation — part of Record-to-Report (R2R) — replaces spreadsheet-and-email close checklists with a single workflow that tracks every close task, owner, and SLA; runs reconciliations before the close window opens; and routes journal entries through review and approval with a full audit trail.",
+      },
+      {
+        question: "How does Procinix reduce close-cycle time?",
+        answer:
+          "By moving reconciliations earlier (bank, AP, AR, GL, and intercompany reconcile continuously, not just at period-end), giving controllers a live view of close progress and bottlenecks, and letting agentic AI draft routine reconciliations and journals so people focus on judgment calls. Customers typically see a 30-50% reduction in close days.",
+      },
+      {
+        question: "Can Procinix automate reconciliations during close?",
+        answer:
+          "Yes. Bank, AP, AR, GL, and intercompany reconciliations run on a schedule ahead of close, with exceptions surfaced immediately rather than discovered during the close crunch — one of the most common causes of late-close surprises.",
+      },
+      {
+        question: "Does Procinix support multi-entity consolidation during close?",
+        answer:
+          "Yes — close task orchestration, reconciliations, and journal controls are entity-aware, and pair with Procinix's consolidation module for multi-entity, multi-currency group reporting, so shared-services and multi-country finance teams close on one platform.",
+      },
+      {
+        question: "How does agentic AI help with the financial close?",
+        answer:
+          "Agents draft reconciliations, propose journal entries with supporting evidence pre-attached, and prioritize the close dashboard by risk — so controllers spend their time reviewing judgment items instead of chasing task status across teams.",
+      },
+      {
+        question: "Is Procinix's R2R close process audit-ready?",
+        answer:
+          "Every task, reconciliation, journal, and exception is documented end-to-end with owner, timestamp, and evidence, so audit support during and after close is a matter of pulling records rather than reconstructing them.",
+      },
+    ],
     relatedSlugs: ["consolidation", "provisions-accruals", "cash-flow-visibility"],
   },
   "cash-flow-visibility": {

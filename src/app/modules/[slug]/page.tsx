@@ -27,7 +27,7 @@ export async function generateMetadata({
   if (!route || !content) return { title: "Module not found" };
   return buildMetadata({
     title: route.title,
-    description: content.tagline,
+    description: content.metaDescription ?? content.tagline,
     path: route.path,
   });
 }

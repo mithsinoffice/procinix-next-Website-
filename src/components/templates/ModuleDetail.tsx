@@ -5,6 +5,7 @@ import { Card } from "@/components/primitives/Card";
 import { Breadcrumbs } from "@/components/primitives/Breadcrumbs";
 import { DetailHero } from "@/components/sections/DetailHero";
 import { CallToAction } from "@/components/sections/CallToAction";
+import { FaqSection } from "@/components/sections/FaqSection";
 import { MODULE_ROUTES, PILLAR_ROUTES, type RouteDef, type Family } from "@/lib/routes";
 import type { ModuleContent } from "@/content/types";
 import { iconForModule } from "@/lib/module-icons";
@@ -200,6 +201,14 @@ export function ModuleDetail({
             ))}
           </div>
         </Section>
+      )}
+
+      {content.faq && content.faq.length > 0 && (
+        <FaqSection
+          eyebrow="FAQ"
+          title={<>Common questions.</>}
+          faqs={content.faq}
+        />
       )}
 
       <CallToAction />

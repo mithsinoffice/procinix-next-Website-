@@ -36,7 +36,11 @@ export function buildMetadata(seo: PageSeo): Metadata {
     : undefined;
 
   return {
-    title: fullTitle,
+    // `absolute` bypasses the root layout's `title.template` (`%s | Procinix`).
+    // fullTitle above already appends " | Procinix" itself, so without
+    // `absolute` the template re-appends it — producing
+    // "X | Procinix | Procinix" on every page that uses buildMetadata().
+    title: { absolute: fullTitle },
     description,
     keywords: seo.keywords,
     alternates: { canonical: url },
