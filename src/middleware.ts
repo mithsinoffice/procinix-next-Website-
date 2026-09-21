@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { jwtVerify } from "jose";
+// See src/lib/auth/session.ts for why this is a subpath import, not "jose".
+import { jwtVerify } from "jose/jwt/verify";
 import { SESSION_COOKIE_NAME } from "@/lib/auth/session";
 
 /**

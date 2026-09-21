@@ -1,4 +1,12 @@
-import { SignJWT, jwtVerify } from "jose";
+// Imported from their specific subpaths (not the "jose" barrel) so the
+// module graph never reaches jose's JWE code (lib/deflate.js), which is
+// the actual source of the "CompressionStream/DecompressionStream not
+// supported in Edge Runtime" build warning. This app only ever signs and
+// verifies compact JWS tokens (HS256) — it never uses JWE encrypt/decrypt,
+// so that code path was always dead weight, not a real Edge-compatibility
+// issue. See docs/hero-slider.md, "Security" for the full trace.
+import { SignJWT } from "jose/jwt/sign";
+import { jwtVerify } from "jose/jwt/verify";
 import type { AdminRole } from "@/lib/hero/types";
 
 export const SESSION_COOKIE_NAME = "procinix_admin_session";

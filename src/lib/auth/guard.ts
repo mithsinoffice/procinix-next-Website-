@@ -2,6 +2,7 @@ import "server-only";
 import { cookies, headers } from "next/headers";
 import { SESSION_COOKIE_NAME, verifySessionToken, type SessionPayload } from "./session.ts";
 import type { AdminRole } from "@/lib/hero/types";
+import { UserFacingError } from "@/lib/errors";
 
 /** Reads and verifies the admin session cookie for the current request.
  *  Returns null when there is no session or it's invalid/expired. */
@@ -20,9 +21,9 @@ export async function getSession(): Promise<SessionPayload | null> {
  */
 export async function requireRole(...allowed: AdminRole[]): Promise<SessionPayload> {
   const session = await getSession();
-  if (!session) throw new Error("Not authenticated.");
+  if (!session) throw new UserFacingError("Not authenticated.");
   if (!allowed.includes(session.role)) {
-    throw new Error(`This action requires one of: ${allowed.join(", ")}.`);
+    throw new UserFacingError(`This action requires one of: ${allowed.join(", ")}.`);
   }
   return session;
 }

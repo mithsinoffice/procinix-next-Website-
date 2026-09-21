@@ -4,7 +4,8 @@ import { cookies } from "next/headers";
 import { sql, isDatabaseConfigured } from "@/lib/db/client";
 import { verifyPassword } from "@/lib/auth/passwords";
 import { createSessionToken, SESSION_COOKIE_NAME, SESSION_COOKIE_OPTIONS } from "@/lib/auth/session";
-import { checkRateLimit, sweepRateLimitBuckets } from "@/lib/auth/rateLimit";
+import { checkLoginRateLimit } from "@/lib/auth/rateLimitDb";
+import { isTrustedOrigin } from "@/lib/auth/csrf";
 
 export const runtime = "nodejs";
 
@@ -16,12 +17,14 @@ const LoginSchema = z.object({
 const LOGIN_RATE_LIMIT = { max: 5, windowMs: 15 * 60 * 1000 };
 
 export async function POST(request: Request) {
-  sweepRateLimitBuckets();
+  if (!isTrustedOrigin(request)) {
+    return NextResponse.json({ error: "Invalid request origin." }, { status: 403 });
+  }
 
   const forwardedFor = request.headers.get("x-forwarded-for");
   const ip = forwardedFor?.split(",")[0]?.trim() || "unknown";
 
-  const { allowed, retryAfterMs } = checkRateLimit(`login:${ip}`, LOGIN_RATE_LIMIT);
+  const { allowed, retryAfterMs } = await checkLoginRateLimit(`login:${ip}`, LOGIN_RATE_LIMIT);
   if (!allowed) {
     console.warn(`Admin login rate-limited for ip=${ip}`);
     return NextResponse.json(

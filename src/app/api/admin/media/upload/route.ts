@@ -2,11 +2,21 @@ import { NextResponse } from "next/server";
 import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
 import { requireRole } from "@/lib/auth/guard";
 import { sql, isDatabaseConfigured } from "@/lib/db/client";
-import { ALLOWED_MEDIA_TYPES, MAX_IMAGE_BYTES, MAX_VIDEO_BYTES } from "@/lib/hero/mediaValidation";
+import {
+  ALLOWED_MEDIA_TYPES,
+  MAX_IMAGE_BYTES,
+  MAX_VIDEO_BYTES,
+  isSafeGeneratedMediaPathname,
+} from "@/lib/hero/mediaValidation";
+import { isTrustedOrigin } from "@/lib/auth/csrf";
 
 export const runtime = "nodejs";
 
 export async function POST(request: Request): Promise<NextResponse> {
+  if (!isTrustedOrigin(request)) {
+    return NextResponse.json({ error: "Invalid request origin." }, { status: 403 });
+  }
+
   // Defense-in-depth: middleware already blocks unauthenticated requests to
   // /api/admin/*, but the token-generation step is re-checked here too,
   // since this is the one admin endpoint that hands a capability (an
@@ -28,7 +38,18 @@ export async function POST(request: Request): Promise<NextResponse> {
     const jsonResponse = await handleUpload({
       body,
       request,
-      onBeforeGenerateToken: async () => {
+      onBeforeGenerateToken: async (pathname) => {
+        // Defense in depth: the client (MediaUploadField.tsx) generates a
+        // safe pathname from a random id + content type, never from the
+        // original filename — but this route re-validates that shape
+        // independently rather than trusting whatever the request claims.
+        // The content type itself is still authoritatively enforced by
+        // Vercel Blob via allowedContentTypes below; this only pins the
+        // pathname's shape to match.
+        const looksSafe = ALLOWED_MEDIA_TYPES.some((type) => isSafeGeneratedMediaPathname(pathname, type));
+        if (!looksSafe) {
+          throw new Error("Invalid upload target.");
+        }
         return {
           allowedContentTypes: [...ALLOWED_MEDIA_TYPES],
           maximumSizeInBytes: Math.max(MAX_IMAGE_BYTES, MAX_VIDEO_BYTES),

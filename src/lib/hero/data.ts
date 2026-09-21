@@ -4,6 +4,7 @@ import { sql, isDatabaseConfigured } from "@/lib/db/client";
 import { EVERGREEN_FALLBACK_CAMPAIGNS } from "./fallback.ts";
 import { getEligibleCampaigns } from "./eligibility.ts";
 import type { HeroCampaign, HeroCampaignInput, HeroStatus } from "./types.ts";
+import { UserFacingError } from "@/lib/errors";
 
 const CAMPAIGNS_TAG = "hero-campaigns";
 /** Safety-net revalidation window; every mutation also calls
@@ -89,7 +90,7 @@ export async function getPublicHeroCampaigns(now: Date = new Date()): Promise<He
 
 function requireDb(): NonNullable<typeof sql> {
   if (!sql) {
-    throw new Error(
+    throw new UserFacingError(
       "DATABASE_URL is not configured — the Homepage Slider admin cannot read or write campaigns until a database is provisioned. See docs/hero-slider.md.",
     );
   }
@@ -155,7 +156,7 @@ export async function updateCampaign(
 ): Promise<HeroCampaign> {
   const db = requireDb();
   const existing = await getCampaignById(id);
-  if (!existing) throw new Error(`Campaign ${id} not found`);
+  if (!existing) throw new UserFacingError(`Campaign ${id} not found`);
 
   const publishedAt =
     input.status === "published" && existing.status !== "published"
@@ -206,9 +207,9 @@ export async function setCampaignStatus(
 ): Promise<HeroCampaign> {
   const db = requireDb();
   const existing = await getCampaignById(id);
-  if (!existing) throw new Error(`Campaign ${id} not found`);
+  if (!existing) throw new UserFacingError(`Campaign ${id} not found`);
   if (existing.isEvergreenFallback && status === "archived") {
-    throw new Error("The evergreen fallback campaign cannot be archived — it is the site's safety net.");
+    throw new UserFacingError("The evergreen fallback campaign cannot be archived — it is the site's safety net.");
   }
   const publishedAt =
     status === "published" && existing.status !== "published" ? new Date().toISOString() : existing.publishedAt;

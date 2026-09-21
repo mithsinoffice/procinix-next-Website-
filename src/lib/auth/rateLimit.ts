@@ -1,16 +1,15 @@
 /**
- * A minimal in-memory sliding-window rate limiter for the admin login and
- * media-upload endpoints.
+ * A minimal in-memory sliding-window rate limiter.
  *
- * Known, disclosed limitation: this state lives in a single serverless
- * function instance's memory. On Vercel, concurrent or geographically
- * distributed requests can land on different instances, each with its own
- * counter, so this is a best-effort deterrent rather than a strict global
- * guarantee — combined with bcrypt's inherent hashing cost, it still
- * meaningfully slows down credential-stuffing and brute-force attempts.
- * For a strict global guarantee, replace this with Upstash Ratelimit
- * (Redis-backed) — see docs/hero-slider.md, "Operations" for the swap-in
- * point once that infrastructure is provisioned.
+ * NOT used by the admin login route in production — an in-memory Map is
+ * not a strict global guarantee on Vercel, where concurrent or
+ * geographically distributed requests can land on different serverless
+ * instances, each with its own counter. The login route uses the
+ * Postgres-backed limiter in src/lib/auth/rateLimitDb.ts instead, which is
+ * atomic across instances. This in-memory version is kept as a small,
+ * dependency-free utility (and its own test coverage) for any future
+ * single-instance or local-dev-only use — it is not wired into a
+ * production auth path.
  */
 const buckets = new Map<string, { count: number; windowStartedAt: number }>();
 

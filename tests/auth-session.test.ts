@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { SignJWT } from "jose/jwt/sign";
 
 process.env.ADMIN_SESSION_SECRET = "test-secret-at-least-32-characters-long-xyz";
 
@@ -30,5 +31,27 @@ test("verifySessionToken: rejects a token signed with a different secret", async
   process.env.ADMIN_SESSION_SECRET = "a-completely-different-secret-value-0000000";
   const payload = await verifySessionToken(token);
   process.env.ADMIN_SESSION_SECRET = originalSecret;
+  assert.equal(payload, null);
+});
+
+test("verifySessionToken: rejects an expired token", async () => {
+  const key = new TextEncoder().encode(process.env.ADMIN_SESSION_SECRET);
+  const expiredToken = await new SignJWT({ email: "admin@procinix.ai", role: "ADMIN" })
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt(Math.floor(Date.now() / 1000) - 100)
+    .setExpirationTime(Math.floor(Date.now() / 1000) - 10)
+    .sign(key);
+  const payload = await verifySessionToken(expiredToken);
+  assert.equal(payload, null);
+});
+
+test("verifySessionToken: rejects a token with a malformed/unrecognized role claim", async () => {
+  const key = new TextEncoder().encode(process.env.ADMIN_SESSION_SECRET);
+  const forgedToken = await new SignJWT({ email: "admin@procinix.ai", role: "SUPERUSER" })
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt()
+    .setExpirationTime("1h")
+    .sign(key);
+  const payload = await verifySessionToken(forgedToken);
   assert.equal(payload, null);
 });

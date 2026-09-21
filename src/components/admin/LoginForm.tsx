@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
+import { isSafeInternalPath } from "@/lib/auth/redirect";
 
 export function LoginForm() {
   const router = useRouter();
@@ -28,7 +29,8 @@ export function LoginForm() {
         setSubmitting(false);
         return;
       }
-      const next = searchParams.get("next") || "/admin";
+      const requestedNext = searchParams.get("next");
+      const next = isSafeInternalPath(requestedNext) ? requestedNext! : "/admin";
       router.push(next);
       router.refresh();
     } catch {

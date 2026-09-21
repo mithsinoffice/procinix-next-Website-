@@ -69,3 +69,13 @@ CREATE TABLE IF NOT EXISTS audit_log (
 );
 
 CREATE INDEX IF NOT EXISTS idx_audit_log_created_at ON audit_log (created_at DESC);
+
+-- Login rate limiting. Backed by Postgres (not process memory) because
+-- Vercel serverless instances are ephemeral and horizontally distributed —
+-- an in-memory counter would not be shared across concurrent/geographically
+-- distributed requests. See src/lib/auth/rateLimitDb.ts.
+CREATE TABLE IF NOT EXISTS login_rate_limits (
+  key TEXT PRIMARY KEY,
+  count INTEGER NOT NULL DEFAULT 1,
+  window_started_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);

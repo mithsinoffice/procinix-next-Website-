@@ -12,6 +12,7 @@ import {
 } from "@/lib/hero/data";
 import { writeAuditLog } from "@/lib/audit";
 import type { HeroCampaignInput, HeroStatus } from "@/lib/hero/types";
+import { UserFacingError, toActionErrorMessage } from "@/lib/errors";
 
 export type ActionResult = { ok: true } | { ok: false; error: string };
 
@@ -23,7 +24,7 @@ export type ActionResult = { ok: true } | { ok: false; error: string };
 function assertEditableStatus(status: HeroStatus, role: "ADMIN" | "CONTENT_EDITOR") {
   if (role === "ADMIN") return;
   if (status === "published" || status === "paused" || status === "archived") {
-    throw new Error("Only an Admin can publish, pause, or archive a campaign. Save as Draft or Scheduled and ask an Admin to publish it.");
+    throw new UserFacingError("Only an Admin can publish, pause, or archive a campaign. Save as Draft or Scheduled and ask an Admin to publish it.");
   }
 }
 
@@ -73,7 +74,7 @@ export async function createCampaignAction(formValues: unknown): Promise<ActionR
     revalidatePath("/");
     return { ok: true };
   } catch (err) {
-    return { ok: false, error: (err as Error).message };
+    return { ok: false, error: toActionErrorMessage(err, "createCampaignAction") };
   }
 }
 
@@ -95,7 +96,7 @@ export async function updateCampaignAction(id: string, formValues: unknown): Pro
     revalidatePath("/");
     return { ok: true };
   } catch (err) {
-    return { ok: false, error: (err as Error).message };
+    return { ok: false, error: toActionErrorMessage(err, "updateCampaignAction") };
   }
 }
 
@@ -118,7 +119,7 @@ export async function publishCampaignAction(id: string): Promise<ActionResult> {
     await transitionStatus(id, "published", "publish");
     return { ok: true };
   } catch (err) {
-    return { ok: false, error: (err as Error).message };
+    return { ok: false, error: toActionErrorMessage(err, "publishCampaignAction") };
   }
 }
 
@@ -127,7 +128,7 @@ export async function unpublishCampaignAction(id: string): Promise<ActionResult>
     await transitionStatus(id, "paused", "unpublish");
     return { ok: true };
   } catch (err) {
-    return { ok: false, error: (err as Error).message };
+    return { ok: false, error: toActionErrorMessage(err, "unpublishCampaignAction") };
   }
 }
 
@@ -136,7 +137,7 @@ export async function archiveCampaignAction(id: string): Promise<ActionResult> {
     await transitionStatus(id, "archived", "archive");
     return { ok: true };
   } catch (err) {
-    return { ok: false, error: (err as Error).message };
+    return { ok: false, error: toActionErrorMessage(err, "archiveCampaignAction") };
   }
 }
 
@@ -153,7 +154,7 @@ export async function reorderCampaignsAction(orderedIds: string[]): Promise<Acti
     revalidatePath("/");
     return { ok: true };
   } catch (err) {
-    return { ok: false, error: (err as Error).message };
+    return { ok: false, error: toActionErrorMessage(err, "reorderCampaignsAction") };
   }
 }
 
@@ -182,6 +183,6 @@ export async function duplicateCampaignAction(id: string): Promise<ActionResult>
     revalidatePath("/admin/slider");
     return { ok: true };
   } catch (err) {
-    return { ok: false, error: (err as Error).message };
+    return { ok: false, error: toActionErrorMessage(err, "duplicateCampaignAction") };
   }
 }

@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { upload } from "@vercel/blob/client";
 import { UploadCloud, Loader2, CheckCircle2, AlertCircle, X } from "lucide-react";
-import { ALLOWED_IMAGE_TYPES, ALLOWED_VIDEO_TYPES, maxBytesFor } from "@/lib/hero/mediaValidation";
+import { ALLOWED_IMAGE_TYPES, ALLOWED_VIDEO_TYPES, maxBytesFor, generateMediaPathname } from "@/lib/hero/mediaValidation";
 
 type Kind = "image" | "video";
 
@@ -41,7 +41,14 @@ export function MediaUploadField({
 
     setState("uploading");
     try {
-      const blob = await upload(file.name, file, {
+      // The object key is generated here from a random id + the validated
+      // content type — never from the original filename — so an admin/
+      // content-editor's browser can't put arbitrary, misleading, or
+      // malformed text into a public, permanent storage URL. The server
+      // independently re-validates this shape before issuing an upload
+      // token (defense in depth — see /api/admin/media/upload).
+      const pathname = generateMediaPathname(file.type);
+      const blob = await upload(pathname, file, {
         access: "public",
         handleUploadUrl: "/api/admin/media/upload",
       });
