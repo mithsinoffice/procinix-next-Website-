@@ -94,7 +94,7 @@ export function SearchTermsBand() {
       title={
         <>
           One platform,{" "}
-          <span className="text-white/40">by every name it's known.</span>
+          <span className="text-white/40">by every name it&apos;s known.</span>
         </>
       }
       description="Finance teams call these workflows by many names across industries and regions. Procinix covers all of them — search for what you need."

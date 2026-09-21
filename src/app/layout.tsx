@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
+import { SiteChrome } from "@/components/SiteChrome";
 import {
   SITE_NAME,
   SITE_URL,
@@ -106,9 +105,7 @@ export default function RootLayout({
             />
           </noscript>
         )}
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

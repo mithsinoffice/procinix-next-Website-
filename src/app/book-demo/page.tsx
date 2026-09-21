@@ -41,12 +41,12 @@ export default function Page() {
             </h1>
             <p className="mt-6 text-[16.5px] text-white/65 leading-[1.6] max-w-lg">
               No canned pitch. We adapt to your operating model, your complexity,
-              and the outcomes you're targeting — and show the platform working
+              and the outcomes you&apos;re targeting — and show the platform working
               on them.
             </p>
             <div className="mt-10">
               <div className="text-[11px] uppercase tracking-[0.2em] text-[var(--accent-amber)] mb-4">
-                What you'll see
+                What you&apos;ll see
               </div>
               <ul className="space-y-3">
                 {includes.map((t) => (

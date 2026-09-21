@@ -25,7 +25,7 @@ export default function Page() {
 
         <Prose>
           <p>
-            This Privacy Policy describes how Procinix ("we", "us") collects,
+            This Privacy Policy describes how Procinix (&quot;we&quot;, &quot;us&quot;) collects,
             uses, and protects personal information when you visit www.procinix.ai
             or interact with our services. By using our website, you agree to the
             terms of this policy.

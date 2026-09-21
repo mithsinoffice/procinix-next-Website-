@@ -1,34 +1,25 @@
-import type { ShowcaseAccent } from "@/content/types";
+import type { HeroAccent } from "@/lib/hero/types";
 
-const accentVar: Record<ShowcaseAccent, string> = {
+const accentVar: Record<HeroAccent, string> = {
   teal: "var(--accent-teal-bright)",
   amber: "var(--accent-amber)",
   purple: "var(--accent-purple)",
 };
 
 /**
- * Branded stand-in for a not-yet-supplied screenshot.
- *
- * Deliberately abstract rather than photographic: it never presents itself
- * as a real customer screenshot, so there's nothing to walk back once
- * `desktopSrc`/`mobileSrc` is filled in for a campaign — see
- * docs/product-showcase.md for the exact asset drop-in procedure.
+ * Branded stand-in for a not-yet-uploaded screenshot/video. Deliberately
+ * abstract, never photographic — it never presents itself as a real
+ * customer screenshot, so there's nothing to walk back once an admin
+ * uploads real media for a campaign (see docs/hero-slider.md).
  */
-export function ShowcasePlaceholder({
-  accent,
-  label,
-}: {
-  accent: ShowcaseAccent;
-  label: string;
-}) {
+export function HeroPlaceholderMedia({ accent, label }: { accent: HeroAccent; label: string }) {
   const c = accentVar[accent];
   return (
     <div
       role="img"
       aria-label={`Screenshot placeholder for ${label} — production imagery pending`}
-      className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[var(--bg-elevated)]"
+      className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[var(--bg-elevated)] shadow-2xl shadow-black/40"
     >
-      {/* "Browser chrome" bar */}
       <div className="flex items-center gap-1.5 border-b border-white/[0.06] bg-white/[0.02] px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
         <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
@@ -36,8 +27,7 @@ export function ShowcasePlaceholder({
         <span className="ml-3 h-5 flex-1 max-w-[220px] rounded-md bg-white/[0.04]" />
       </div>
 
-      {/* Abstract dashboard mock */}
-      <div className="grid h-[calc(100%-42px)] grid-cols-4 gap-3 p-4">
+      <div className="grid h-[calc(100%-42px)] grid-cols-4 gap-3 p-4 sm:p-5">
         <div className="col-span-4 grid grid-cols-4 gap-3">
           {[0, 1, 2, 3].map((i) => (
             <div key={i} className="rounded-lg border border-white/[0.06] bg-white/[0.03] p-3">
@@ -48,7 +38,7 @@ export function ShowcasePlaceholder({
         </div>
         <div className="col-span-3 rounded-lg border border-white/[0.06] bg-white/[0.03] p-4">
           <div className="h-2 w-24 rounded bg-white/[0.08]" />
-          <svg viewBox="0 0 200 60" className="mt-4 h-16 w-full" preserveAspectRatio="none" aria-hidden>
+          <svg viewBox="0 0 200 60" className="mt-4 h-20 w-full" preserveAspectRatio="none" aria-hidden>
             <polyline
               points="0,45 25,38 50,42 75,22 100,28 125,15 150,20 175,8 200,14"
               fill="none"
@@ -72,11 +62,7 @@ export function ShowcasePlaceholder({
         </div>
       </div>
 
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{ boxShadow: `inset 0 0 80px -30px ${c}` }}
-      />
+      <span aria-hidden className="pointer-events-none absolute inset-0" style={{ boxShadow: `inset 0 0 80px -30px ${c}` }} />
     </div>
   );
 }

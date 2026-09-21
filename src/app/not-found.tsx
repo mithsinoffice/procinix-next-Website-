@@ -22,7 +22,7 @@ export default function NotFound() {
           Off the map.
         </h1>
         <p className="text-white/60 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
-          The page you were looking for doesn't exist — or hasn't been published
+          The page you were looking for doesn&apos;t exist — or hasn&apos;t been published
           yet. Head back to the platform overview.
         </p>
         <Link

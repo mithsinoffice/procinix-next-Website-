@@ -40,7 +40,7 @@ export function Footer() {
               Automation & Beyond
             </span>
             <h3 className="font-display text-3xl sm:text-4xl lg:text-[44px] leading-[1.1] text-white tracking-[-0.015em]">
-              Don't change your business <br className="hidden sm:block" />
+              Don&apos;t change your business <br className="hidden sm:block" />
               to fit software.
             </h3>
           </div>

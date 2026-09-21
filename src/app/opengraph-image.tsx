@@ -103,7 +103,7 @@ export default function OgImage() {
               color: "white",
             }}
           >
-            Don't change your business
+            Don&apos;t change your business
           </div>
           <div
             style={{

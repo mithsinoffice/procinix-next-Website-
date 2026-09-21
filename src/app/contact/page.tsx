@@ -33,7 +33,7 @@ export default function Page() {
             </h1>
             <p className="mt-6 text-[16.5px] text-white/65 leading-[1.6] max-w-lg">
               We walk through your operating model, your complexity, and the
-              outcomes you're targeting — then show what a tailored Procinix
+              outcomes you&apos;re targeting — then show what a tailored Procinix
               deployment looks like.
             </p>
             <ul className="mt-10 space-y-4 text-[14.5px] text-white/75">

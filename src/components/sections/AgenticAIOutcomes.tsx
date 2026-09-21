@@ -124,7 +124,7 @@ export function AgenticAIOutcomes() {
             className="mt-6 text-[17px] lg:text-[19px] text-white/65 leading-[1.6] max-w-2xl"
           >
             Three layers working together — agents that execute, analytics that
-            reveal, and automation that's judged by the business outcome, not
+            reveal, and automation that&apos;s judged by the business outcome, not
             the tasks done.
           </motion.p>
         </div>

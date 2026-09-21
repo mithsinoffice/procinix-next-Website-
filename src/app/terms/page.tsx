@@ -56,7 +56,7 @@ export default function Page() {
 
           <h2>Disclaimers</h2>
           <p>
-            The website is provided "as is" without warranties of any kind.
+            The website is provided &quot;as is&quot; without warranties of any kind.
             Procinix disclaims all implied warranties to the extent permitted by
             law.
           </p>

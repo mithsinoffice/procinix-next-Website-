@@ -194,7 +194,7 @@ export function ContactForm({
 
         <div className="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
           <p className="text-[11.5px] text-white/40 leading-relaxed max-w-md">
-            By submitting, you agree to be contacted about Procinix. We don't
+            By submitting, you agree to be contacted about Procinix. We don&apos;t
             share your details. See our privacy policy.
           </p>
           <Button
