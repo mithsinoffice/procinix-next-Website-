@@ -17,12 +17,21 @@ export function ShowcaseNavigation({
 }: {
   campaigns: ShowcaseCampaign[];
   activeId: string;
-  onSelect: (id: string) => void;
+  /**
+   * Optional so the static server-rendered fallback (see
+   * ProductShowcase.tsx's ShowcaseFallback) can render this component
+   * without passing a function prop across the server/client boundary —
+   * React disallows passing event handlers from a Server Component into a
+   * Client Component. The fallback is non-interactive by design (it's
+   * replaced the moment ProductShowcaseInner hydrates), so a no-op default
+   * is the correct behavior there, not a workaround.
+   */
+  onSelect?: (id: string) => void;
 }) {
   const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   function focusAndSelect(id: string) {
-    onSelect(id);
+    onSelect?.(id);
     tabRefs.current[id]?.focus();
   }
 
@@ -57,7 +66,7 @@ export function ShowcaseNavigation({
             aria-selected={isActive}
             aria-controls={`showcase-panel-${c.id}`}
             tabIndex={isActive ? 0 : -1}
-            onClick={() => onSelect(c.id)}
+            onClick={() => onSelect?.(c.id)}
             onKeyDown={(e) => handleKeyDown(e, i)}
             className={clsx(
               "rounded-full border px-4 py-2 text-[13px] font-medium tracking-[0.01em] transition-all duration-300",

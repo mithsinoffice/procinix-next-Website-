@@ -33,7 +33,7 @@ function ShowcaseFallback() {
           </h2>
         </div>
         <div className="mb-8 lg:mb-10">
-          <ShowcaseNavigation campaigns={campaigns} activeId={active.id} onSelect={() => {}} />
+          <ShowcaseNavigation campaigns={campaigns} activeId={active.id} />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-[42%_1fr] gap-8 lg:gap-12 items-center">
           <div className="order-2 lg:order-1">
