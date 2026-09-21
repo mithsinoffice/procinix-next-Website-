@@ -63,6 +63,7 @@ type LinkButtonProps = CommonProps & {
   target?: string;
   rel?: string;
   ariaLabel?: string;
+  onClick?: () => void;
 };
 
 export function ButtonLink({
@@ -76,6 +77,7 @@ export function ButtonLink({
   target,
   rel,
   ariaLabel,
+  onClick,
 }: LinkButtonProps) {
   const after = iconAfter === true ? <ArrowRight className="h-4 w-4" /> : iconAfter;
   const isExternal = href.startsWith("http");
@@ -107,13 +109,14 @@ export function ButtonLink({
         rel={rel ?? (target === "_blank" ? "noopener noreferrer" : undefined)}
         aria-label={ariaLabel}
         className={classes}
+        onClick={onClick}
       >
         {content}
       </a>
     );
   }
   return (
-    <Link href={href} aria-label={ariaLabel} className={classes}>
+    <Link href={href} aria-label={ariaLabel} className={classes} onClick={onClick}>
       {content}
     </Link>
   );

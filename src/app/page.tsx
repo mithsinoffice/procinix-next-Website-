@@ -3,6 +3,7 @@ import { buildMetadata, softwareApplicationJsonLd, SITE_URL } from "@/lib/seo";
 import { CORE_ROUTES } from "@/lib/routes";
 import { Hero } from "@/components/sections/Hero";
 import { TrustBand } from "@/components/sections/TrustBand";
+import { ProductShowcase } from "@/components/showcase/ProductShowcase";
 import { FinanceFamilies } from "@/components/sections/FinanceFamilies";
 import { AgenticAIOutcomes } from "@/components/sections/AgenticAIOutcomes";
 import { ValueAssessmentTeaser } from "@/components/sections/ValueAssessmentTeaser";
@@ -38,6 +39,7 @@ export default function Page() {
       />
       <Hero />
       <TrustBand />
+      <ProductShowcase />
       <FinanceFamilies />
       <AgenticAIOutcomes />
       <ValueAssessmentTeaser />

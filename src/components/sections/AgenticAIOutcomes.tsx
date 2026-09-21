@@ -70,7 +70,7 @@ const microStrip = [
 
 export function AgenticAIOutcomes() {
   return (
-    <section className="relative isolate overflow-hidden py-28 lg:py-36 bg-[var(--bg-secondary)]">
+    <section id="agentic-ai" className="relative isolate overflow-hidden py-28 lg:py-36 bg-[var(--bg-secondary)] scroll-mt-24">
       {/* Subtle aurora background */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div

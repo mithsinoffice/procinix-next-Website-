@@ -70,3 +70,50 @@ export type ComparisonContent = {
   relevantModuleSlugs: string[];
   faq?: { question: string; answer: string }[];
 };
+
+/** Accent tone reused from the site's three-family palette (see ModuleDetail's familyTone). */
+export type ShowcaseAccent = "teal" | "amber" | "purple";
+
+export type ShowcaseMedia =
+  | {
+      mediaType: "image";
+      /** Path under /public, e.g. "/showcase/command-centre/desktop.png". Omit to render the built-in placeholder frame. */
+      desktopSrc?: string;
+      mobileSrc?: string;
+      alt: string;
+    }
+  | {
+      mediaType: "video";
+      desktopSrc?: string;
+      mobileSrc?: string;
+      /** Poster frame shown before playback / while the video is inactive. */
+      poster?: string;
+      alt: string;
+    };
+
+export type ShowcaseCampaign = {
+  id: string;
+  /** URL-safe slug used for deep-linking, e.g. ?showcase=r2r */
+  slug: string;
+  /** Short label shown in the pill navigation, e.g. "S2P" */
+  navigationLabel: string;
+  eyebrow: string;
+  headline: string;
+  description: string;
+  media: ShowcaseMedia;
+  accent: ShowcaseAccent;
+  primaryCta: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+  /** Reuses real, already-published site stats — never invented figures. */
+  metrics?: { label: string; value: string }[];
+  badges?: string[];
+  /** Lower renders first. */
+  priority: number;
+  /** Toggle a campaign off without deleting its config. */
+  active: boolean;
+  /** ISO 8601 instants (UTC). Omit either bound for an open-ended window. */
+  startAt?: string;
+  endAt?: string;
+  /** GA4 campaign identifier carried on every event this card fires. */
+  analyticsCampaignId: string;
+};
