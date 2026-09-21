@@ -411,7 +411,7 @@ export const MODULE_ROUTES = {
     label: "Provisions & Accruals",
     title: "Provisions & Accruals Automation",
     description: "Policy-driven provisions and accruals — recurring templates, evidence chains, and automated reversal when actuals arrive.",
-    keywords: ["provisions automation", "accruals automation", "provision management", "accrual workflow", "deferral accounting"],
+    keywords: ["provisions automation", "accruals automation", "provision management", "accrual workflow", "deferral accounting", "provision module", "provision automation", "month end provisions", "provisions and reversal"],
     group: "module",
     family: "r2r",
   },
