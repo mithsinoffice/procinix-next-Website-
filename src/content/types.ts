@@ -51,3 +51,22 @@ export type SolutionContent = {
   relevantModuleSlugs: string[];
   faq?: { question: string; answer: string }[];
 };
+
+export type ComparisonContent = {
+  slug: string;
+  /** Name of the competitor being compared against. */
+  competitor: string;
+  tagline: string;
+  metaDescription?: string;
+  /** Short framing paragraph — how the two categories/approaches differ. */
+  summary: string;
+  /** What Procinix specifically brings to this comparison. */
+  procinixStrengths: string[];
+  /** Fair, general summary of what the competitor is known for. */
+  competitorStrengths: string[];
+  comparisonRows: { category: string; procinix: string; competitor: string }[];
+  whenToChooseProcinix: string;
+  whenToChooseCompetitor: string;
+  relevantModuleSlugs: string[];
+  faq?: { question: string; answer: string }[];
+};

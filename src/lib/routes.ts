@@ -19,6 +19,7 @@ export type RouteDef = {
     | "industry"
     | "region"
     | "solution"
+    | "comparison"
     | "utility";
   family?: Family;
 };
@@ -527,6 +528,34 @@ export const SOLUTION_ROUTES = {
   usaFinanceOps: { path: "/solutions/usa-finance-operations-platform", label: "USA Finance Operations Platform", title: "Finance Operations Platform for USA", description: "Finance operations platform for US enterprises — multi-state, ACH, ERP-ready.", group: "solution" },
 } satisfies Record<string, RouteDef>;
 
+// -------- Comparison pages (backlink / roundup pitching) --------
+export const COMPARISON_ROUTES = {
+  vsHighRadius: {
+    path: "/comparisons/procinix-vs-highradius",
+    label: "Procinix vs HighRadius",
+    title: "Procinix vs HighRadius: AP/AR Automation Compared",
+    description: "How Procinix's unified S2P/O2C/R2R platform compares to HighRadius's order-to-cash and treasury automation suite — coverage, geography, and fit.",
+    keywords: ["Procinix vs HighRadius", "HighRadius alternative", "HighRadius competitor", "HighRadius vs Procinix"],
+    group: "comparison",
+  },
+  vsTipalti: {
+    path: "/comparisons/procinix-vs-tipalti",
+    label: "Procinix vs Tipalti",
+    title: "Procinix vs Tipalti: AP Automation & Global Payments Compared",
+    description: "How Procinix's AP automation and S2P/O2C/R2R platform compares to Tipalti's global mass-payouts and AP automation platform.",
+    keywords: ["Procinix vs Tipalti", "Tipalti alternative", "Tipalti competitor", "Tipalti vs Procinix"],
+    group: "comparison",
+  },
+  vsCoupa: {
+    path: "/comparisons/procinix-vs-coupa",
+    label: "Procinix vs Coupa",
+    title: "Procinix vs Coupa: Procurement & AP Automation Compared",
+    description: "How Procinix's procure-to-pay and finance operations platform compares to Coupa's enterprise business spend management suite.",
+    keywords: ["Procinix vs Coupa", "Coupa alternative", "Coupa competitor", "Coupa vs Procinix"],
+    group: "comparison",
+  },
+} satisfies Record<string, RouteDef>;
+
 // -------- Utility --------
 export const UTILITY_ROUTES = {
   privacy: { path: "/privacy-policy", label: "Privacy Policy", title: "Privacy Policy", description: "How Procinix handles your data.", group: "utility" },
@@ -541,6 +570,7 @@ export const ROUTES = {
   ...INDUSTRY_ROUTES,
   ...REGION_ROUTES,
   ...SOLUTION_ROUTES,
+  ...COMPARISON_ROUTES,
   ...UTILITY_ROUTES,
 };
 

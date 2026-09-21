@@ -9,6 +9,7 @@ const priorityByGroup: Record<string, number> = {
   industry: 0.7,
   region: 0.7,
   solution: 0.75,
+  comparison: 0.65,
   utility: 0.3,
 };
 
