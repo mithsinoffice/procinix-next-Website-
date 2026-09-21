@@ -4,6 +4,8 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "retail-fashion": {
     slug: "retail-fashion",
     tagline: "SKU-level spend, vendor complexity, and multi-channel reconciliation — handled.",
+    metaDescription:
+      "Retail ops automation for finance — SKU-level vendor spend, marketplace reconciliation, store-level petty cash, and multi-banner month-end close.",
     painPoints: [
       "Thousands of SKUs and seasonal vendors",
       "Marketplace deductions and chargebacks that pile up",
@@ -34,6 +36,28 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
       { metric: "Cleaner reconciliation", detail: "Marketplace and store settlements tied out systematically." },
       { metric: "Faster month-end", detail: "Close orchestrated across stores and entities." },
       { metric: "Better vendor economics", detail: "Tight control of discounts, rebates, and deductions." },
+    ],
+    faq: [
+      {
+        question: "What does retail ops automation cover on the finance side?",
+        answer:
+          "For retail and fashion finance teams, it covers vendor onboarding and payment across thousands of SKUs and seasonal suppliers, marketplace settlement reconciliation down to the SKU and order level, store-level petty cash with a proper audit trail, and month-end close orchestrated across banners, stores, and entities.",
+      },
+      {
+        question: "How does Procinix handle marketplace deductions and chargebacks?",
+        answer:
+          "Marketplace settlements are matched against invoices and orders automatically, with deductions and chargebacks tied back to the specific SKU or transaction that caused them — so retail finance teams aren't reconciling settlement reports against the ledger by hand every cycle.",
+      },
+      {
+        question: "Can this manage store-level petty cash across many locations?",
+        answer:
+          "Yes — cash advances, receipt capture, and float reconciliation are tracked per site and per custodian, replacing the shoebox-and-spreadsheet approach that store-heavy retailers often fall back on.",
+      },
+      {
+        question: "Does retail ops automation support multi-banner, multi-entity close?",
+        answer:
+          "Yes — month-end close is orchestrated across banners, stores, and legal entities on one platform, so a retail group with multiple brands or regions closes on a consistent cadence instead of reconciling banner-by-banner.",
+      },
     ],
   },
   manufacturing: {

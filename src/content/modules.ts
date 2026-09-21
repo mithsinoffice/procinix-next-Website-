@@ -35,6 +35,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "procurement",
     family: "s2p",
     tagline: "Requisition to PO — policy-enforced, commitment-aware.",
+    metaDescription:
+      "Procurement automation software — a procurement solution for requisition-to-PO, budget checks, and approval workflows that sits alongside your ERP.",
     painPoints: [
       "Off-catalog spend with no pre-approval",
       "Budget overruns discovered after the fact",
@@ -54,6 +56,28 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents classify PR line items to the right catalog categories, route approvals based on policy, and flag high-risk or duplicate requisitions before they progress.",
+    faq: [
+      {
+        question: "What does a procurement solution like Procinix actually automate?",
+        answer:
+          "It automates the requisition-to-PO cycle end to end: catalog and free-text buying, real-time budget checks at the point of request (not after invoicing), a configurable approval matrix, and live PO lifecycle tracking from draft through GRN and closure.",
+      },
+      {
+        question: "Is Procinix a procurement ERP, or does it work alongside our existing ERP?",
+        answer:
+          "Procinix is a procurement automation layer that sits alongside your ERP rather than replacing it — requisitions, POs, budgets, and approvals sync with SAP, Oracle, Microsoft Dynamics, NetSuite, Tally, and other ERPs, so you get modern procurement workflow without a core-system migration.",
+      },
+      {
+        question: "How does this prevent budget overruns?",
+        answer:
+          "Budgets are reserved as commitments the moment a requisition is approved — not discovered after the invoice lands — so overruns are prevented at the point of purchase decision, not reported after the fact.",
+      },
+      {
+        question: "Can approval workflows be configured per category, entity, or threshold?",
+        answer:
+          "Yes — the approval matrix is fully policy-driven: thresholds, categories, entities, and delegations are all configurable without custom development, so procurement policy stays enforced as the organization scales.",
+      },
+    ],
     relatedSlugs: ["sourcing", "accounts-payable", "budgeting-spend-control"],
   },
   "accounts-payable": {
@@ -123,6 +147,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "payments",
     family: "s2p",
     tagline: "Secure, scheduled payments — across banks, entities, currencies.",
+    metaDescription:
+      "Payment automation across banks, entities, and currencies — including recurring vendor and utility payment automation, sanctions screening, and auto-reconciliation.",
     painPoints: [
       "Multiple bank portals, multiple file formats",
       "No single view of payment run status",
@@ -142,6 +168,28 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents validate beneficiary details, flag anomalies in payment amounts vs history, and auto-reconcile payment status back to invoices and bank statements.",
+    faq: [
+      {
+        question: "Can Procinix automate recurring vendor and utility payments?",
+        answer:
+          "Yes. Utility automation and other recurring vendor payments (rent, subscriptions, statutory dues) run as scheduled payment runs with the same approval, sanctions screening, and reconciliation controls as one-off payments — so recurring spend doesn't bypass control just because it's routine.",
+      },
+      {
+        question: "How does payment automation reduce failed payments?",
+        answer:
+          "Beneficiary details, bank formats, and payment limits are validated before a payment run is released, catching errors that would otherwise bounce at the bank — a common source of late-payment penalties on recurring utility and vendor accounts.",
+      },
+      {
+        question: "Does Procinix support multi-bank, multi-entity payment runs?",
+        answer:
+          "Yes — host-to-host connections, APIs, and file-based formats across multiple banks and entities are managed from one control plane, with payment runs orchestrated, approved, and released per entity's policy.",
+      },
+      {
+        question: "How are payments reconciled back to invoices?",
+        answer:
+          "Payments auto-reconcile against AP invoices and bank statements as they clear, so the AP and treasury teams aren't manually tying out payment runs against the ledger every month.",
+      },
+    ],
     relatedSlugs: ["accounts-payable", "cash-flow-visibility", "vendor-reconciliation"],
   },
   "travel-expense": {
@@ -198,6 +246,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "vendor-reconciliation",
     family: "s2p",
     tagline: "Vendor statements, matched and reconciled at scale.",
+    metaDescription:
+      "Vendor reconciliation automation — statement matching, open-item analysis, and dispute workflows that keep vendor balances audit-ready ahead of month-end.",
     painPoints: [
       "Vendor statements pile up unreviewed",
       "Disputes surface late, straining relationships",
@@ -217,12 +267,36 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents match statement lines to ledger entries, classify mismatches, and draft dispute documentation so AP teams spend time deciding — not preparing.",
+    faq: [
+      {
+        question: "What is vendor reconciliation automation?",
+        answer:
+          "Vendor reconciliation automation matches vendor-supplied statements against your ledger balances automatically, surfaces unmatched invoices, missing credits, and disputed items, and routes each open item into a tracked resolution workflow — instead of a manual, spreadsheet-based reconciliation done once a month.",
+      },
+      {
+        question: "How does this reduce surprises at month-end close?",
+        answer:
+          "Because vendor statements are reconciled continuously rather than at period-end, discrepancies surface and get resolved well before the close window opens, removing one of the most common sources of last-minute close delays.",
+      },
+      {
+        question: "Can it handle disputes with vendors?",
+        answer:
+          "Yes — every disputed item is tracked from open to resolution with supporting documentation attached, so nothing gets lost in email threads and vendor relationships aren't strained by slow, undocumented resolution.",
+      },
+      {
+        question: "Does reconciliation automation work across multiple entities and vendors at scale?",
+        answer:
+          "Yes — statement import and matching scale across hundreds of vendors and multiple entities, with the same rules and audit trail applied consistently everywhere.",
+      },
+    ],
     relatedSlugs: ["accounts-payable", "payments", "customer-reconciliation"],
   },
   "budgeting-spend-control": {
     slug: "budgeting-spend-control",
     family: "s2p",
     tagline: "Budgets that hold. Commitments that show.",
+    metaDescription:
+      "Budget module with live commitment tracking and budget forecast / re-forecast workflows — spend visibility before invoices post, not after.",
     painPoints: [
       "Budgets set once a year, never tracked in real time",
       "Spend visibility only after invoice posting",
@@ -242,12 +316,36 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents project run-rate spend against budget, surface categories trending overrun, and suggest re-forecast scenarios with evidence.",
+    faq: [
+      {
+        question: "What is a budget module in a finance operations platform?",
+        answer:
+          "A budget module tracks budgets against real commitments — requisitions, purchase orders, and actuals — in real time, rather than only comparing budget to posted invoices at month-end. Procinix reduces budgets the moment a PR or PO is approved, so overruns are visible before spend happens.",
+      },
+      {
+        question: "How does budget forecast and re-forecasting work?",
+        answer:
+          "Re-forecast cycles are controlled workflows, not ad hoc spreadsheets — categories trending toward overrun are surfaced automatically, and agents can propose re-forecast scenarios with the underlying spend evidence, so cycles that used to take weeks run in days.",
+      },
+      {
+        question: "Can budgets be tracked by category, entity, or cost center?",
+        answer:
+          "Yes — budget and commitment hierarchies go down to the lowest operating level you need: category, entity, cost center, or project, so spend visibility matches how the business is actually organized.",
+      },
+      {
+        question: "Does the budget module enforce spend policy automatically?",
+        answer:
+          "Yes — soft and hard threshold limits are applied at requisition and PO time, so policy is enforced at the point of purchase decision instead of being a post-hoc audit finding.",
+      },
+    ],
     relatedSlugs: ["procurement", "sourcing", "accounts-payable"],
   },
   "fixed-assets": {
     slug: "fixed-assets",
     family: "s2p",
     tagline: "Asset lifecycle — acquisition to disposal, clean books throughout.",
+    metaDescription:
+      "Fixed assets automation — capitalization, depreciation, physical verification, and lease/right-of-use asset tracking (Ind AS 116) in one audit-ready register.",
     painPoints: [
       "Asset register out of sync with ledger",
       "Depreciation errors and manual adjustments",
@@ -267,6 +365,33 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents classify capex line items into asset categories, flag misclassified expenses, and monitor for idle or unused assets that may need impairment review.",
+    faq: [
+      {
+        question: "What is fixed assets automation?",
+        answer:
+          "Fixed assets automation keeps the asset register in sync with the ledger automatically — capitalizing assets from PO/invoice data, running depreciation on policy, and reconciling physical verification cycles back to the books — instead of manual spreadsheets and end-of-year clean-up.",
+      },
+      {
+        question: "Which depreciation methods are supported?",
+        answer:
+          "Straight-line, written-down value (WDV), and units-of-production are all configurable per asset category and entity, so multi-entity groups can apply different policies where local accounting standards require it.",
+      },
+      {
+        question: "Does Procinix handle lease and right-of-use assets under Ind AS 116?",
+        answer:
+          "Yes. Rental and lease arrangements accounted for under Ind AS 116 (or IFRS 16) — right-of-use asset amortization and the associated lease liability schedule — are tracked alongside owned fixed assets, so lease-heavy portfolios (offices, retail stores, equipment) stay reconciled to the ledger rather than managed on a side spreadsheet.",
+      },
+      {
+        question: "How does automation improve audit readiness for fixed assets?",
+        answer:
+          "Every asset's lifecycle — capitalization, depreciation runs, physical verification, impairment, and disposal — is documented end-to-end, so audit queries are answered by pulling the record, not reconstructing it.",
+      },
+      {
+        question: "Can this flag idle or unused assets?",
+        answer:
+          "Yes — agents monitor usage and verification data to flag assets that may be idle, unused, or candidates for impairment review, before they become a year-end surprise.",
+      },
+    ],
     relatedSlugs: ["procurement", "accounts-payable", "month-end-close"],
   },
 
@@ -388,6 +513,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "collections",
     family: "o2c",
     tagline: "Agentic collections — reduce DSO without damaging relationships.",
+    metaDescription:
+      "Collection automation with segmented dunning, promise-to-pay tracking, and risk scoring — built to cut DSO without over-chasing good customers.",
     painPoints: [
       "Dunning sequences are one-size-fits-all",
       "Promise-to-pay tracking falls through the cracks",
@@ -407,12 +534,36 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents draft contextual collection touches, score accounts on payment likelihood, and sequence outreach so collectors focus on the accounts where human judgment moves the needle.",
+    faq: [
+      {
+        question: "What is collection automation?",
+        answer:
+          "Collection automation replaces one-size-fits-all dunning with segmented strategies by customer risk and value, tracks promise-to-pay commitments to closure, and coordinates outreach across email, portal, and phone — so collectors work a prioritized list instead of chasing everyone the same way.",
+      },
+      {
+        question: "How does this reduce DSO without hurting customer relationships?",
+        answer:
+          "Risk scoring surfaces which accounts genuinely need escalation and which are just slow-payers with a good track record, so collectors spend effort where it moves cash — not on customers who don't need to be chased hard.",
+      },
+      {
+        question: "Does it track promise-to-pay commitments?",
+        answer:
+          "Yes — every commitment a customer makes is logged, tracked, and escalated automatically if it's missed, so promises don't quietly fall through the cracks the way they do in spreadsheets and inboxes.",
+      },
+      {
+        question: "Can collection strategies differ by customer segment?",
+        answer:
+          "Yes — enterprise, SMB, and at-risk accounts each run their own playbook, with escalation timing and channel mix configured per segment rather than one blanket policy for every customer.",
+      },
+    ],
     relatedSlugs: ["accounts-receivable", "customer-reconciliation", "cash-flow-visibility"],
   },
   "customer-reconciliation": {
     slug: "customer-reconciliation",
     family: "o2c",
     tagline: "Customer balances, agreed. Disputes, documented.",
+    metaDescription:
+      "Customer reconciliation automation — statement comparison, deduction tie-out, and dispute workflows that keep customer balances audit-ready.",
     painPoints: [
       "Customer disputes linger for months",
       "Reconciliation is manual at quarter/year end",
@@ -432,6 +583,28 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents reconcile customer statements line by line, classify deductions, and draft resolution pathways backed by the supporting documentation.",
+    faq: [
+      {
+        question: "What is customer reconciliation automation?",
+        answer:
+          "Customer reconciliation automation matches customer-provided statements against your ledger balances, ties deductions back to the invoices, POs, and contracts that justify them, and tracks disputes from open to closed with a full evidence chain — instead of a manual quarter-end scramble.",
+      },
+      {
+        question: "How does it handle deductions and disputes?",
+        answer:
+          "Deductions are automatically classified and matched to their source documents, and every dispute moves through a tracked workflow so resolution history — not just the outcome — is available for audit or customer conversations.",
+      },
+      {
+        question: "Does this help with external audit confirmations?",
+        answer:
+          "Yes — customer balances and supporting evidence are available on demand, so responding to audit confirmation requests is a matter of pulling records rather than reconstructing them under time pressure.",
+      },
+      {
+        question: "Can reconciliation automation scale across many customers and entities?",
+        answer:
+          "Yes — statement comparison and deduction tie-out run the same way across hundreds of customer accounts and multiple entities, with consistent evidence capture throughout.",
+      },
+    ],
     relatedSlugs: ["accounts-receivable", "collections", "vendor-reconciliation"],
   },
 
@@ -553,6 +726,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "provisions-accruals",
     family: "r2r",
     tagline: "Provisions and accruals — policy-driven, not tribal knowledge.",
+    metaDescription:
+      "Provision and accrual automation, plus prepaid expense automation — policy-driven accruals, deferral schedules, and auto-reversal at month-end close.",
     painPoints: [
       "Accruals reconstructed from memory each month",
       "Inconsistent provision policies across entities",
@@ -572,12 +747,36 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents recommend accrual amounts from outstanding POs, contracts, and historical patterns, and auto-reverse when invoices arrive — with full evidence.",
+    faq: [
+      {
+        question: "What is provision and accrual automation?",
+        answer:
+          "It applies consistent, policy-driven rules to calculate accruals and provisions every period — instead of reconstructing them from memory or spreadsheets each month — with recurring templates for routine accruals and controlled workflows for one-off provisions.",
+      },
+      {
+        question: "Does this cover prepaid expense automation too?",
+        answer:
+          "Yes — prepayments and deferrals are tracked on the same policy-driven basis as accruals, so prepaid balances don't slip through the cracks between the expense being paid and the cost being recognized in the right period.",
+      },
+      {
+        question: "How does auto-reversal work?",
+        answer:
+          "When the actual invoice or transaction arrives, the corresponding accrual or provision reverses and true-ups automatically, with the evidence chain (contracts, POs, invoices) linked to every entry — reducing the size and pain of year-end true-ups.",
+      },
+      {
+        question: "Can provision policy be applied consistently across multiple entities?",
+        answer:
+          "Yes — the same accrual and provision rules apply per category and entity, so a multi-entity group doesn't end up with inconsistent, locally-invented provisioning practices.",
+      },
+    ],
     relatedSlugs: ["month-end-close", "amortization", "year-end-close"],
   },
   amortization: {
     slug: "amortization",
     family: "r2r",
     tagline: "Amortization — schedule-driven, audit-traced.",
+    metaDescription:
+      "Amortisation automation for prepaid expenses and lease/rental schedules under Ind AS 116 — contract-to-schedule postings with full audit drill-down.",
     painPoints: [
       "Prepaid schedules on spreadsheets",
       "New contracts added manually to schedules",
@@ -597,6 +796,33 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents build amortization schedules from contract PDFs, propose modification entries, and detect contracts due for renewal or expiry.",
+    faq: [
+      {
+        question: "What is amortization automation?",
+        answer:
+          "Amortization automation builds monthly amortization schedules directly from source contracts and POs — prepaid expenses, software licenses, insurance, and lease arrangements — and posts them on schedule with approval and reversal controls, instead of a spreadsheet someone maintains by hand.",
+      },
+      {
+        question: "Does Procinix handle rental and lease amortization under Ind AS 116?",
+        answer:
+          "Yes. Rental and lease contracts accounted for under Ind AS 116 (or IFRS 16) generate a right-of-use asset amortization schedule and lease liability unwind automatically from the contract terms, with modifications — extensions, early terminations, scope changes — tracked as they happen rather than reconstructed at audit time.",
+      },
+      {
+        question: "How are prepaid expenses automated here?",
+        answer:
+          "Prepaid contracts (insurance, subscriptions, retainers) are converted into a schedule the moment the contract is loaded, and monthly postings happen automatically — so the prepaid balance always reflects reality instead of being a periodic clean-up exercise.",
+      },
+      {
+        question: "Can every amortization posting be traced back to its source contract?",
+        answer:
+          "Yes — every posting drills down to the originating contract or PO, so an audit question about any amortization line is answered in seconds, not days.",
+      },
+      {
+        question: "What happens when a contract is modified or terminated early?",
+        answer:
+          "Modifications and early terminations are handled as tracked events that adjust the remaining schedule going forward, with the accounting impact surfaced immediately rather than discovered at the next audit.",
+      },
+    ],
     relatedSlugs: ["provisions-accruals", "month-end-close", "fixed-assets"],
   },
   "year-end-close": {
