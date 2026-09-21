@@ -6,6 +6,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "sourcing",
     family: "s2p",
     tagline: "Strategic sourcing, from RFx to award — on one workflow.",
+    metaDescription:
+      "Strategic sourcing software for RFx and supplier evaluation — structured RFI/RFP/RFQ workflows, weighted scoring, and one-click award-to-PO handoff.",
     heroStats: [
       { value: "45%", label: "faster RFx cycle" },
       { value: "3×", label: "more vendors evaluated" },
@@ -29,6 +31,28 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agentic AI summarizes supplier responses, flags outliers on commercial and legal terms, and pre-scores evaluations so the sourcing team reviews faster without losing rigor.",
+    faq: [
+      {
+        question: "How is this different from just running RFQs over email?",
+        answer:
+          "Every RFx event runs on a structured workflow with standardized templates, so supplier responses come back normalized and comparable — instead of a mix of PDFs, emails, and spreadsheets that have to be manually reconciled before anyone can compare bids.",
+      },
+      {
+        question: "Can we score suppliers on more than just price?",
+        answer:
+          "Yes — evaluation is multi-criteria and weighted, covering cost, quality, lead time, risk, and compliance, so award decisions are defensible on more than the lowest bid.",
+      },
+      {
+        question: "Does an awarded RFx flow straight into procurement?",
+        answer:
+          "Yes — award-to-PO conversion is one click, with budget checks and approval routing already intact, so sourcing and procurement stay on one continuous workflow instead of two disconnected systems.",
+      },
+      {
+        question: "Is there an audit trail for sourcing decisions?",
+        answer:
+          "Every RFx event, evaluation score, and award decision is documented end-to-end, which matters for both internal audit and any external compliance review of vendor selection.",
+      },
+    ],
     relatedSlugs: ["procurement", "budgeting-spend-control", "vendor-reconciliation"],
   },
   procurement: {
@@ -196,6 +220,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "travel-expense",
     family: "s2p",
     tagline: "Policy-aware T&E — mobile capture, automated reimbursement.",
+    metaDescription:
+      "Travel and expense (T&E) automation software — mobile receipt capture with OCR, policy-aware validation, corporate card matching, and automated reimbursement.",
     painPoints: [
       "Receipts lost, expense reports late",
       "Policy violations slip through or block legitimate spend",
@@ -215,12 +241,36 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents classify expenses to the right categories, detect duplicates and policy breaches, and only escalate cases that need human judgment — with evidence attached.",
+    faq: [
+      {
+        question: "How does mobile receipt capture actually work?",
+        answer:
+          "An employee photographs the receipt in the app; OCR extracts the vendor, amount, date, and category automatically, and the claim is checked against policy before it ever reaches an approver.",
+      },
+      {
+        question: "Can policy rules vary by grade, geography, or category?",
+        answer:
+          "Yes — daily limits, category rules, and per-diem handling are all configurable, so a single policy engine can support different rules across regions or employee grades without separate workflows.",
+      },
+      {
+        question: "Does this reconcile against our corporate card feeds?",
+        answer:
+          "Yes — card transaction feeds are matched to submitted expense claims automatically, so finance isn't manually cross-checking statements against paper receipts.",
+      },
+      {
+        question: "How much faster is reimbursement?",
+        answer:
+          "Because policy violations are flagged at the point of capture rather than during a later review cycle, approved claims move straight to payment — employees are typically reimbursed in days, not weeks.",
+      },
+    ],
     relatedSlugs: ["petty-cash", "accounts-payable", "payments"],
   },
   "petty-cash": {
     slug: "petty-cash",
     family: "s2p",
     tagline: "Digitized petty cash — audit trails, not shoeboxes.",
+    metaDescription:
+      "Petty cash management software — digitized cash advances, mobile receipt capture, site-level float reconciliation, and full audit trails for field and branch operations.",
     painPoints: [
       "Cash advances tracked on spreadsheets",
       "No audit trail for site-level cash spend",
@@ -240,6 +290,28 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents parse site-level receipts, detect anomalies in pattern or amount, and escalate only items that break the policy or exceed normal variance.",
+    faq: [
+      {
+        question: "How does this replace a spreadsheet-based petty cash log?",
+        answer:
+          "Cash advances are requested, approved, disbursed, and settled through one tracked workflow, and receipts are captured on a mobile device by the custodian at the point of spend — no more shoebox reconciliation at month-end.",
+      },
+      {
+        question: "Can we track petty cash across multiple branches or field sites?",
+        answer:
+          "Yes — float balances are reconciled per site and per custodian on a schedule, giving finance full visibility across every location instead of chasing individual site ledgers.",
+      },
+      {
+        question: "What happens to advances that are never settled?",
+        answer:
+          "Unused advances, overdue settlements, and anomalous spend are flagged automatically, so finance catches unsettled cash before it becomes a year-end surprise.",
+      },
+      {
+        question: "Does it support multiple currencies?",
+        answer:
+          "Yes — the same workflow tracks float and reconciliation across currencies, which matters for organizations running field operations across multiple countries.",
+      },
+    ],
     relatedSlugs: ["travel-expense", "accounts-payable", "fixed-assets"],
   },
   "vendor-reconciliation": {
@@ -516,6 +588,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "order-management",
     family: "o2c",
     tagline: "Orders captured, validated, and orchestrated to fulfillment.",
+    metaDescription:
+      "Order management automation — multi-channel order capture, upfront credit and inventory validation, and fulfillment orchestration with live order status.",
     painPoints: [
       "Orders arrive across channels — email, portal, EDI, voice",
       "Credit and inventory checks happen late",
@@ -535,12 +609,36 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents parse orders from any channel, validate against price books and credit profiles, and suggest resolution paths for holds and exceptions.",
+    faq: [
+      {
+        question: "Can orders come in from multiple channels?",
+        answer:
+          "Yes — email, portal, EDI, and direct entry are all normalized into one intake, so sales, ops, and finance are all working from the same order record regardless of how it arrived.",
+      },
+      {
+        question: "When are credit and inventory checks performed?",
+        answer:
+          "At the gate, before an order is accepted — not after fulfillment has already started — which is what prevents the holds and reworks that come from discovering a credit or stock issue mid-process.",
+      },
+      {
+        question: "Does this integrate with our existing ERP for fulfillment?",
+        answer:
+          "Yes — orders are routed to the right plant, warehouse, or service flow and synced back to your ERP, so fulfillment orchestration sits alongside your core system rather than replacing it.",
+      },
+      {
+        question: "How is order status tracked?",
+        answer:
+          "There's a single, live source of order status visible to sales, operations, and finance simultaneously, rather than each team maintaining its own view from a different system.",
+      },
+    ],
     relatedSlugs: ["billing-invoicing", "accounts-receivable", "customer-reconciliation"],
   },
   "billing-invoicing": {
     slug: "billing-invoicing",
     family: "o2c",
     tagline: "Billing that's accurate, timely, and e-invoicing-ready.",
+    metaDescription:
+      "Billing and e-invoicing automation — scheduled and on-demand billing runs, country-specific e-invoicing compliance (VAT, GST, ZATCA, Peppol), and credit note workflows.",
     painPoints: [
       "Manual billing runs are slow and error-prone",
       "Tax and compliance (VAT, GST, ZATCA, Peppol) complexity",
@@ -560,6 +658,28 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents validate billable data against contracts and price books, detect timing anomalies, and pre-assemble credit notes when the evidence supports it.",
+    faq: [
+      {
+        question: "Does this handle e-invoicing compliance across countries?",
+        answer:
+          "Yes — country-specific e-invoicing formats and connectivity are built in, covering requirements like VAT, GST, ZATCA (Saudi Arabia), and Peppol (Singapore/Australia), so compliance doesn't require a separate project per market.",
+      },
+      {
+        question: "How are credit notes and rebills tracked?",
+        answer:
+          "Every credit note and rebill runs through a tracked workflow with a full audit trail, instead of being handled as manual one-off adjustments that are hard to trace back to the original invoice.",
+      },
+      {
+        question: "Can billing runs be scheduled or triggered on demand?",
+        answer:
+          "Both — structured billing supports scheduled batch runs as well as on-demand billing, giving finance control over timing without manual intervention each cycle.",
+      },
+      {
+        question: "Does this help with revenue recognition at close?",
+        answer:
+          "Yes — billing data hands off to the close team in a structured format built for revenue posting, reducing the timing questions that typically come up between billing and close.",
+      },
+    ],
     relatedSlugs: ["order-management", "accounts-receivable", "collections"],
   },
   "accounts-receivable": {
@@ -792,6 +912,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "cash-flow-visibility",
     family: "r2r",
     tagline: "Cash position and forecast — live, multi-entity, multi-currency.",
+    metaDescription:
+      "Cash flow visibility software — live, multi-entity, multi-currency cash positions with direct-method forecasting, scenario modeling, and intercompany/FX visibility.",
     painPoints: [
       "Cash position known weekly at best",
       "Forecasting is spreadsheet-heavy and stale",
@@ -811,12 +933,36 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents continuously refresh cash forecasts from AP/AR flows, surface deviations from plan, and propose scenario responses (payment deferrals, collection pushes) with expected impact.",
+    faq: [
+      {
+        question: "How current is the cash position shown?",
+        answer:
+          "The dashboard is bank-synced and shows live cash positions by entity and currency, rather than the weekly snapshot most finance teams are used to working from.",
+      },
+      {
+        question: "How is the forecast built?",
+        answer:
+          "Using the direct method — forecasts are built from actual AP, AR, and operating signals rather than a top-down spreadsheet extrapolation, which is what makes them more accurate as conditions change.",
+      },
+      {
+        question: "Can we model stress scenarios like delayed collections or FX shocks?",
+        answer:
+          "Yes — scenario modeling lets treasury stress-test the forecast against delayed collections, FX shocks, or cost ramps before they happen, not after.",
+      },
+      {
+        question: "Does this handle intercompany and multi-currency exposure?",
+        answer:
+          "Yes — net cash positions are shown across legal entities and currencies, which is where most manual cash reporting processes lose accuracy.",
+      },
+    ],
     relatedSlugs: ["month-end-close", "accounts-receivable", "payments"],
   },
   consolidation: {
     slug: "consolidation",
     family: "r2r",
     tagline: "Multi-entity consolidation — with intercompany eliminated and FX handled.",
+    metaDescription:
+      "Financial consolidation software — multi-entity group reporting with automated intercompany elimination, currency translation, and audit-ready consolidation packs.",
     painPoints: [
       "Group reporting takes days post-close",
       "Intercompany elimination is manual and fragile",
@@ -836,6 +982,28 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents match intercompany transactions, propose elimination entries, and flag translation mismatches — so the group team validates, not assembles.",
+    faq: [
+      {
+        question: "How does this handle different ERPs across entities?",
+        answer:
+          "Local chart-of-accounts data is mapped to a group COA with a full audit trail, so consolidation works even when each entity runs a different underlying ERP.",
+      },
+      {
+        question: "Is intercompany elimination automated?",
+        answer:
+          "Yes — intercompany matching, elimination, and dispute workflow are built in, replacing the manual matching process that's usually the slowest part of group close.",
+      },
+      {
+        question: "How is currency translation handled?",
+        answer:
+          "Translation follows standard FASB/IAS rules, with resulting gains and losses surfaced clearly rather than buried in a translation adjustment nobody can trace.",
+      },
+      {
+        question: "What does the group reporting pack include?",
+        answer:
+          "A consolidated P&L, balance sheet, and cash flow statement, produced on schedule instead of days after local entities close their own books.",
+      },
+    ],
     relatedSlugs: ["month-end-close", "year-end-close", "provisions-accruals"],
   },
   "provisions-accruals": {
@@ -945,6 +1113,8 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     slug: "year-end-close",
     family: "r2r",
     tagline: "Year-end without the scramble.",
+    metaDescription:
+      "Year-end close and statutory reporting software — structured task plans, audit PBC orchestration, statutory adjustment tracking, and group finalization.",
     painPoints: [
       "Year-end is a different process to month-end",
       "Audit requests are ad-hoc and stressful",
@@ -964,6 +1134,28 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     ],
     aiAngle:
       "Agents draft PBC responses from existing evidence, flag audit risks from anomalies in the ledger, and surface statutory vs. management differences for review.",
+    faq: [
+      {
+        question: "How is year-end close different from the monthly close process here?",
+        answer:
+          "It runs on the same rhythm as month-end close, just wider in scope — with a structured task plan, named owners, and evidence requirements specific to statutory and audit needs.",
+      },
+      {
+        question: "How are auditor requests (PBC items) handled?",
+        answer:
+          "Auditor requests are received, tracked, and fulfilled through a dedicated portal, instead of being managed over email threads that are hard to audit themselves.",
+      },
+      {
+        question: "Can we track statutory vs. management-basis differences?",
+        answer:
+          "Yes — statutory and management-basis differences are tracked with full traceability, which is usually the messiest part of year-end without a dedicated workflow.",
+      },
+      {
+        question: "Does this support multi-entity group finalization?",
+        answer:
+          "Yes — consolidation packs and supporting notes are prepared ready for statutory sign-off across entities, not assembled entity-by-entity at the last minute.",
+      },
+    ],
     relatedSlugs: ["month-end-close", "consolidation", "provisions-accruals"],
   },
   "bank-reconciliation": {
