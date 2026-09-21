@@ -165,7 +165,7 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
           "Yes — it's a core design point. Approval matrices, tax handling (including GST, VAT, and ZATCA e-invoicing), currencies, and vendor governance are all entity-aware, so a shared-services or multi-country AP team runs on one platform instead of stitching together per-country tools.",
       },
     ],
-    relatedSlugs: ["payments", "procurement", "vendor-reconciliation"],
+    relatedSlugs: ["payments", "procurement", "vendor-reconciliation", "vendor-advances", "vendor-portal"],
   },
   payments: {
     slug: "payments",
@@ -361,7 +361,7 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
           "Yes — statement import and matching scale across hundreds of vendors and multiple entities, with the same rules and audit trail applied consistently everywhere.",
       },
     ],
-    relatedSlugs: ["accounts-payable", "payments", "customer-reconciliation", "vendor-onboarding"],
+    relatedSlugs: ["accounts-payable", "payments", "customer-reconciliation", "vendor-onboarding", "vendor-advances", "vendor-portal"],
   },
   "budgeting-spend-control": {
     slug: "budgeting-spend-control",
@@ -464,7 +464,7 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
           "Yes — agents monitor usage and verification data to flag assets that may be idle, unused, or candidates for impairment review, before they become a year-end surprise.",
       },
     ],
-    relatedSlugs: ["procurement", "accounts-payable", "month-end-close"],
+    relatedSlugs: ["procurement", "accounts-payable", "month-end-close", "ind-as-116-lease-accounting"],
   },
   "inventory-management": {
     slug: "inventory-management",
@@ -580,7 +580,7 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
           "Yes — KYC requirements, approval routing, and document checklists are all entity- and country-aware, so a shared-services or multi-country procurement team runs one onboarding process instead of ad hoc local variations.",
       },
     ],
-    relatedSlugs: ["vendor-reconciliation", "procurement", "sourcing"],
+    relatedSlugs: ["vendor-reconciliation", "procurement", "sourcing", "vendor-portal"],
   },
 
   // ------------ Order-to-Cash ------------
@@ -1107,7 +1107,7 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
           "Modifications and early terminations are handled as tracked events that adjust the remaining schedule going forward, with the accounting impact surfaced immediately rather than discovered at the next audit.",
       },
     ],
-    relatedSlugs: ["provisions-accruals", "month-end-close", "fixed-assets"],
+    relatedSlugs: ["provisions-accruals", "month-end-close", "fixed-assets", "ind-as-116-lease-accounting", "prepaid-automation"],
   },
   "year-end-close": {
     slug: "year-end-close",
@@ -1220,6 +1220,203 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
       },
     ],
     relatedSlugs: ["month-end-close", "cash-flow-visibility", "payments"],
+  },
+
+  "ind-as-116-lease-accounting": {
+    slug: "ind-as-116-lease-accounting",
+    family: "r2r",
+    tagline: "Ind AS 116 lease accounting — right-of-use assets and lease liabilities, automated end to end.",
+    metaDescription:
+      "Ind AS 116 (and IFRS 16) lease accounting software — automated right-of-use asset and lease liability schedules, modifications, and audit-ready disclosures for rental and lease contracts.",
+    painPoints: [
+      "Lease population scattered across property, equipment, and vehicle contracts",
+      "ROU asset and lease liability schedules built and tracked in spreadsheets",
+      "Modifications — renewals, early terminations, scope changes — not remeasured on time",
+      "Disclosure notes assembled manually each year-end from disconnected trackers",
+    ],
+    features: [
+      { title: "Contract-to-schedule automation", body: "ROU asset and lease liability schedules generated directly from lease contract terms — no manual amortization tables." },
+      { title: "Modification and remeasurement handling", body: "Renewals, early terminations, and scope changes trigger automatic remeasurement of the ROU asset and lease liability." },
+      { title: "Discount rate and lease term tracking", body: "Incremental borrowing rate, lease term, and low-value/short-term exemptions tracked per contract, per entity." },
+      { title: "Disclosure-ready reporting", body: "Maturity analysis, ROU roll-forward, and lease liability disclosures generated directly from the schedule, not rebuilt each year-end." },
+    ],
+    outcomes: [
+      { metric: "Compliant from day one", detail: "Every lease contract classified and scheduled under Ind AS 116 (or IFRS 16) as soon as it's signed." },
+      { metric: "No missed remeasurements", detail: "Modifications trigger automatic recalculation instead of being caught at audit." },
+      { metric: "Audit-ready disclosures", detail: "ROU roll-forward and maturity notes ready without a manual quarter-end scramble." },
+    ],
+    aiAngle:
+      "Agents read lease contracts to extract lease term, payment schedule, and renewal/termination options, propose the initial ROU asset and lease liability measurement, and flag contracts due for renewal or remeasurement review.",
+    faq: [
+      {
+        question: "How is this different from general amortization automation?",
+        answer:
+          "This is a dedicated engine for the Ind AS 116 / IFRS 16 lease population — property, equipment, and vehicle rentals — covering initial recognition of the right-of-use asset and lease liability, ongoing remeasurement, and disclosure, not just the periodic posting schedule that general amortization handles for prepaid items.",
+      },
+      {
+        question: "Does this handle both Ind AS 116 and IFRS 16?",
+        answer:
+          "Yes — the two standards converge on the same single-lessee accounting model, so the same contract data drives a compliant schedule under whichever standard applies to the reporting entity.",
+      },
+      {
+        question: "How are lease modifications and rent renegotiations handled?",
+        answer:
+          "Renewals, early terminations, and scope changes are captured against the original contract and trigger automatic remeasurement of the right-of-use asset and lease liability, rather than requiring a manual recalculation at the next audit.",
+      },
+      {
+        question: "What disclosures does this support?",
+        answer:
+          "Right-of-use asset roll-forward, lease liability maturity analysis, the weighted-average incremental borrowing rate, and low-value/short-term lease exemption disclosures are all generated directly from the schedule.",
+      },
+    ],
+    relatedSlugs: ["amortization", "fixed-assets", "month-end-close"],
+  },
+  "prepaid-automation": {
+    slug: "prepaid-automation",
+    family: "r2r",
+    tagline: "Prepaid expense automation — every contract on a schedule, every posting traced.",
+    metaDescription:
+      "Prepaid expense amortization software — contract-to-schedule automation for insurance, subscriptions, retainers, and licenses, with monthly postings and full audit trail.",
+    painPoints: [
+      "Prepaid schedules maintained in spreadsheets outside the ERP",
+      "New prepaid contracts — insurance, licenses, subscriptions — added manually, often late",
+      "Monthly postings missed or double-posted without central tracking",
+      "Audit questions on prepaid balances take days to trace back to source contracts",
+    ],
+    features: [
+      { title: "Contract-to-schedule automation", body: "Prepaid schedules generated the moment a contract or invoice is loaded — insurance, software licenses, retainers, subscriptions." },
+      { title: "Automated monthly postings", body: "Scheduled postings run automatically each period, with approval and reversal controls." },
+      { title: "Renewal and expiry alerts", body: "Contracts approaching renewal or expiry are flagged before the prepaid balance goes stale." },
+      { title: "Audit drill-down", body: "Every posting traces back to its source contract or invoice in one click." },
+    ],
+    outcomes: [
+      { metric: "Accurate prepaid balance", detail: "Schedules reflect every active contract — nothing forgotten in a spreadsheet." },
+      { metric: "Faster close", detail: "Monthly prepaid postings run on schedule, not as a period-end scramble." },
+      { metric: "Audit clarity", detail: "Full contract-to-ledger trace in seconds, not days." },
+    ],
+    aiAngle:
+      "Agents extract contract terms from invoices and agreements to build the amortization schedule automatically, and flag contracts nearing renewal or expiry for review.",
+    faq: [
+      {
+        question: "What counts as a prepaid expense here?",
+        answer:
+          "Insurance premiums, software licenses, subscriptions, retainers, and any other cost paid upfront but consumed over a future period — each gets its own schedule from the moment the contract or invoice is loaded.",
+      },
+      {
+        question: "How is this different from the general amortization module?",
+        answer:
+          "It sits alongside the broader amortization engine but is purpose-built for the prepaid-expense population specifically, with renewal and expiry visibility tuned for contracts like insurance and subscriptions rather than lease right-of-use assets.",
+      },
+      {
+        question: "Does this connect to accounts payable so new prepaid invoices are captured automatically?",
+        answer:
+          "Yes — a new invoice flagged as prepaid in AP can generate its amortization schedule directly, without a separate manual entry step.",
+      },
+      {
+        question: "Can multiple entities each run their own prepaid schedules?",
+        answer:
+          "Yes — schedules, postings, and renewal tracking are maintained per entity, so a multi-entity group doesn't need a shared spreadsheet to keep prepaid balances straight.",
+      },
+    ],
+    relatedSlugs: ["amortization", "accounts-payable", "month-end-close"],
+  },
+  "vendor-advances": {
+    slug: "vendor-advances",
+    family: "s2p",
+    tagline: "Vendor advances — tracked, adjusted, and reconciled automatically against invoices.",
+    metaDescription:
+      "Vendor advance payment software — track advance payments to suppliers, auto-adjust against incoming invoices, and keep advance balances reconciled and audit-ready.",
+    painPoints: [
+      "Advance payments tracked in spreadsheets, disconnected from AP",
+      "Manual adjustment of advances against invoices, often missed or double-counted",
+      "No visibility into outstanding advance balances by vendor",
+      "Advance-vs-invoice reconciliation a recurring audit finding",
+    ],
+    features: [
+      { title: "Advance request and approval workflow", body: "Advance payment requests routed through policy-based approval before disbursement." },
+      { title: "Automatic invoice adjustment", body: "Incoming invoices from the same vendor are automatically netted against open advances." },
+      { title: "Outstanding balance visibility", body: "Live advance balances by vendor, entity, and aging — no manual tracker." },
+      { title: "Reconciliation and audit trail", body: "Every advance, adjustment, and residual balance traces back to its source transaction." },
+    ],
+    outcomes: [
+      { metric: "Clean advance ledger", detail: "Every advance automatically nets against invoices as they arrive." },
+      { metric: "No stale balances", detail: "Aging and outstanding advances visible by vendor, not buried in a spreadsheet." },
+      { metric: "Audit-ready", detail: "Full trace from advance disbursement to final invoice adjustment." },
+    ],
+    aiAngle:
+      "Agents match incoming vendor invoices to open advances automatically, flag advances outstanding beyond policy thresholds, and surface vendors with recurring unadjusted balances.",
+    faq: [
+      {
+        question: "How are advances adjusted against invoices?",
+        answer:
+          "As matching invoices arrive from the same vendor, the open advance balance is automatically netted against them, instead of an AP clerk manually tracking which invoices still have an advance to apply.",
+      },
+      {
+        question: "What happens if an invoice is smaller than the advance?",
+        answer:
+          "The residual advance balance carries forward automatically and stays visible against that vendor until it's fully applied or settled.",
+      },
+      {
+        question: "Can we set policy limits on advance amounts?",
+        answer:
+          "Yes — advance limits can be configured by vendor, category, or entity, with requests above policy routed for additional approval.",
+      },
+      {
+        question: "Does this integrate with accounts payable and vendor reconciliation?",
+        answer:
+          "Yes — advances, adjustments, and residual balances all flow into the same vendor ledger used by AP and vendor reconciliation, so there's one view of what's owed and what's already been paid.",
+      },
+    ],
+    relatedSlugs: ["accounts-payable", "vendor-reconciliation", "procurement"],
+  },
+  "vendor-portal": {
+    slug: "vendor-portal",
+    family: "s2p",
+    tagline: "Vendor portal — self-service visibility that cuts inbound emails and calls.",
+    metaDescription:
+      "Vendor self-service portal software — real-time invoice and payment status, PO acknowledgment, and document upload for suppliers, without email or phone follow-ups.",
+    painPoints: [
+      "AP team fielding constant \"where's my payment\" emails and calls",
+      "Vendors have no visibility into invoice or PO status",
+      "Document exchange — invoices, compliance certificates — handled over email",
+      "No single source of truth vendors can check themselves",
+    ],
+    features: [
+      { title: "Self-service status visibility", body: "Vendors see invoice status, payment status, and PO acknowledgment in real time." },
+      { title: "Document upload and exchange", body: "Invoices, compliance certificates, and bank detail updates submitted directly through the portal." },
+      { title: "PO acknowledgment", body: "Vendors confirm PO terms and quantities directly, reducing dispute cycles." },
+      { title: "Dispute and query workflow", body: "Vendor queries routed and tracked in the portal instead of scattered across email threads." },
+    ],
+    outcomes: [
+      { metric: "Fewer inbound queries", detail: "Vendors self-serve status instead of emailing or calling AP." },
+      { metric: "Faster dispute resolution", detail: "Queries tracked in one place instead of buried in inboxes." },
+      { metric: "Cleaner vendor master data", detail: "Bank and compliance detail updates come through a controlled, auditable channel." },
+    ],
+    aiAngle:
+      "Agents pre-populate vendor query responses using live invoice, PO, and payment data, and flag documents uploaded by vendors that need AP review before acceptance.",
+    faq: [
+      {
+        question: "What can vendors see and do in the portal?",
+        answer:
+          "Vendors can check invoice status, payment status, and PO acknowledgment in real time, and upload invoices, compliance certificates, or bank detail update requests directly.",
+      },
+      {
+        question: "Does this reduce AP team workload?",
+        answer:
+          "Yes — most status-check emails and calls are eliminated because vendors can self-serve the answer, freeing AP to focus on exceptions rather than repeating status updates.",
+      },
+      {
+        question: "How are bank detail change requests handled securely?",
+        answer:
+          "A change request submitted through the portal is routed through an approval workflow rather than accepted automatically, so a fraudulent bank-detail change attempt doesn't go straight into the vendor master.",
+      },
+      {
+        question: "Does this integrate with vendor onboarding and vendor reconciliation?",
+        answer:
+          "Yes — the same vendor record carries through onboarding, portal self-service, and reconciliation, so there's one master record rather than three disconnected systems.",
+      },
+    ],
+    relatedSlugs: ["vendor-onboarding", "vendor-reconciliation", "accounts-payable"],
   },
 };
 

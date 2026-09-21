@@ -23,6 +23,10 @@ import {
   Boxes,
   ShieldCheck,
   Landmark,
+  Building,
+  CalendarClock,
+  Banknote,
+  Globe,
 } from "lucide-react";
 
 /** Icon per module slug (last segment of path). */
@@ -39,6 +43,8 @@ export const MODULE_ICONS: Record<string, ReactNode> = {
   "fixed-assets": <Building2 className="h-4 w-4" />,
   "inventory-management": <Boxes className="h-4 w-4" />,
   "vendor-onboarding": <ShieldCheck className="h-4 w-4" />,
+  "vendor-advances": <Banknote className="h-4 w-4" />,
+  "vendor-portal": <Globe className="h-4 w-4" />,
   // O2C
   "order-management": <PackageCheck className="h-4 w-4" />,
   "billing-invoicing": <Receipt className="h-4 w-4" />,
@@ -53,6 +59,8 @@ export const MODULE_ICONS: Record<string, ReactNode> = {
   amortization: <LineChart className="h-4 w-4" />,
   "year-end-close": <Award className="h-4 w-4" />,
   "bank-reconciliation": <Landmark className="h-4 w-4" />,
+  "ind-as-116-lease-accounting": <Building className="h-4 w-4" />,
+  "prepaid-automation": <CalendarClock className="h-4 w-4" />,
 };
 
 export function moduleSlug(path: string): string {
