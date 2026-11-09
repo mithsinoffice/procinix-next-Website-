@@ -12,7 +12,11 @@ import {
   Bot,
 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
-import { PILLAR_ROUTES, MODULES_BY_FAMILY } from "@/lib/routes";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { PILLAR_ROUTES, MODULES_BY_FAMILY, GLOSSARY_ROUTES } from "@/lib/routes";
+import { Section } from "@/components/primitives/Section";
+import { Card } from "@/components/primitives/Card";
 import { DetailHero } from "@/components/sections/DetailHero";
 import { PillarFlow } from "@/components/sections/PillarFlow";
 import { PillarModules } from "@/components/sections/PillarModules";
@@ -58,7 +62,7 @@ export default function Page() {
             Spend, sourced and controlled <span className="text-white/40">end-to-end.</span>
           </>
         }
-        description="From sourcing and budgets to AP, payments, T&E, and fixed assets — one S2P value stream with configurable workflows, real-time controls, and agentic AI handling exceptions."
+        description="Source-to-pay (S2P) software — from sourcing and budgets to AP, payments, T&E, and fixed assets — one unified value stream with configurable workflows, real-time controls, and agentic AI handling exceptions."
         stats={[
           { value: "99%+", label: "Invoice capture accuracy" },
           { value: "70%+", label: "Touchless processing" },
@@ -82,6 +86,21 @@ export default function Page() {
         tone="teal"
       />
       <ValueAssessmentTeaser />
+      <Section eyebrow="Learn more" title="Definitions." containerSize="narrow">
+        <Link href={GLOSSARY_ROUTES.whatIsS2P.path} className="block max-w-md">
+          <Card interactive glow className="p-6">
+            <div className="flex items-start justify-between gap-3 mb-2">
+              <h3 className="font-display text-[15.5px] text-white">
+                {GLOSSARY_ROUTES.whatIsS2P.label}
+              </h3>
+              <ArrowUpRight className="h-4 w-4 text-white/30 shrink-0" />
+            </div>
+            <p className="text-[13px] text-white/55 leading-relaxed">
+              A plain-language definition of source-to-pay, and how it differs from P2P.
+            </p>
+          </Card>
+        </Link>
+      </Section>
       <FaqSection
         eyebrow="S2P / P2P FAQ"
         title={<>Source-to-Pay, <span className="text-white/40">answered.</span></>}

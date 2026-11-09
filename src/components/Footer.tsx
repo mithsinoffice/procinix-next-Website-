@@ -5,6 +5,8 @@ import { Container } from "@/components/primitives/Container";
 import {
   CORE_ROUTES,
   PILLAR_ROUTES,
+  GUIDE_ROUTES,
+  GLOSSARY_ROUTES,
   INDUSTRY_ROUTES,
   REGION_ROUTES,
   UTILITY_ROUTES,
@@ -15,6 +17,29 @@ const topModules = [
   ...MODULES_BY_FAMILY.s2p.slice(0, 4),
   ...MODULES_BY_FAMILY.o2c.slice(0, 3),
   ...MODULES_BY_FAMILY.r2r.slice(0, 3),
+];
+
+// The nav's hover flyout isn't in the initial server-rendered HTML, and the
+// columns above only surface a handful of modules each — so any module not
+// listed there had no always-rendered, crawlable link anywhere on the site
+// besides the sitemap. This closes that gap without changing the footer's
+// visual layout above.
+const topModulePaths = new Set(topModules.map((m) => m.path));
+const remainingModules = [
+  ...MODULES_BY_FAMILY.s2p,
+  ...MODULES_BY_FAMILY.o2c,
+  ...MODULES_BY_FAMILY.r2r,
+].filter((m) => !topModulePaths.has(m.path));
+
+// Guides & glossary — same crawlability gap as modules: nothing in the main
+// nav points at these, so they need an always-rendered footer link too.
+const guidesAndGlossary = [
+  GUIDE_ROUTES.r2rProcessAutomation,
+  GUIDE_ROUTES.bankReconciliationAutomation,
+  GLOSSARY_ROUTES.whatIsR2R,
+  GLOSSARY_ROUTES.whatIsO2C,
+  GLOSSARY_ROUTES.whatIsS2P,
+  GLOSSARY_ROUTES.whatIsDSO,
 ];
 
 export function Footer() {
@@ -124,6 +149,7 @@ export function Footer() {
               { label: PILLAR_ROUTES.sourceToPay.label, href: PILLAR_ROUTES.sourceToPay.path },
               { label: PILLAR_ROUTES.orderToCash.label, href: PILLAR_ROUTES.orderToCash.path },
               { label: PILLAR_ROUTES.recordToReport.label, href: PILLAR_ROUTES.recordToReport.path },
+              { label: GUIDE_ROUTES.recordToReportBuyersGuide.label, href: GUIDE_ROUTES.recordToReportBuyersGuide.path },
               { label: CORE_ROUTES.roi.label, href: CORE_ROUTES.roi.path },
             ]}
           />
@@ -145,6 +171,45 @@ export function Footer() {
               href: r.path,
             }))}
           />
+        </div>
+
+        {/* More modules — every module page gets at least one always-rendered,
+            crawlable link, even the ones not promoted into the columns above. */}
+        {remainingModules.length > 0 && (
+          <div className="mt-10 pt-8 border-t border-white/[0.06]">
+            <h4 className="text-[11px] uppercase tracking-[0.22em] text-[var(--accent-teal)] mb-4">
+              More modules
+            </h4>
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
+              {remainingModules.map((m) => (
+                <Link
+                  key={m.path}
+                  href={m.path}
+                  className="text-[12.5px] text-white/45 hover:text-white/80 transition-colors"
+                >
+                  {m.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Guides & glossary — same reasoning as "More modules" above. */}
+        <div className="mt-6 pt-6 border-t border-white/[0.06]">
+          <h4 className="text-[11px] uppercase tracking-[0.22em] text-[var(--accent-teal)] mb-4">
+            Guides & glossary
+          </h4>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {guidesAndGlossary.map((g) => (
+              <Link
+                key={g.path}
+                href={g.path}
+                className="text-[12.5px] text-white/45 hover:text-white/80 transition-colors"
+              >
+                {g.label}
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Bottom bar */}

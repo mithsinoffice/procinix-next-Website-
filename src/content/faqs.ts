@@ -154,3 +154,72 @@ export const PLATFORM_FAQS: Faq[] = [
       "Procinix enforces role-based access with segregation of duties, SSO (SAML / OIDC) with directory sync, encryption in transit and at rest, and regional data residency where mandated. Every action is logged for audit. Controls and evidence are built in — not bolted on.",
   },
 ];
+
+export const R2R_BUYERS_GUIDE_FAQS: Faq[] = [
+  {
+    question: "What is record-to-report (R2R) software?",
+    answer:
+      "Record-to-report software is the system finance teams use to run period-end close — task orchestration, reconciliation, journal entries, provisions and accruals, intercompany elimination, consolidation, and reporting — in one connected workflow instead of spreadsheets and email.",
+  },
+  {
+    question: "What's the difference between R2R software and my ERP's close module?",
+    answer:
+      "An ERP keeps the ledger. R2R software sits on top of one or several ERPs and orchestrates the close itself — task ownership, reconciliation, journal approval, consolidation, and audit evidence — on a fixed calendar across every entity, which most ERP close modules don't cover natively.",
+  },
+  {
+    question: "How long does R2R software implementation take?",
+    answer:
+      "For a multi-entity rollout, expect roughly 8–10 weeks: 1–2 weeks of discovery and close-process mapping, 3–6 weeks of configuration, 7–8 weeks for a parallel run alongside the existing close, and go-live around week 9–10 — then ongoing tuning as more entities and automation are added.",
+  },
+  {
+    question: "Can R2R software handle multi-entity, multi-currency consolidation?",
+    answer:
+      "A platform built for multi-entity finance should handle intercompany matching, FX translation, elimination, and minority-interest consolidation natively across your entity structure — ask any vendor for a live walkthrough with mismatched intercompany balances, not a slide.",
+  },
+  {
+    question: "Is it worth replacing spreadsheets with R2R software?",
+    answer:
+      "Once you're closing more than a couple of entities, operating in more than one currency or statutory basis, or spending real controller time reconstructing audit evidence each cycle, spreadsheets stop scaling — teams that switch to a unified R2R platform typically see close-days compress by roughly 30–50%, directionally, depending on entity count and configuration discipline.",
+  },
+];
+
+export const BANK_RECONCILIATION_GUIDE_FAQS: Faq[] = [
+  {
+    question: "What is bank reconciliation automation?",
+    answer:
+      "Bank reconciliation automation is matching ledger transactions against bank statement lines automatically, using rule-based logic, instead of exporting both to a spreadsheet and matching them by hand — leaving only genuine exceptions for manual review.",
+  },
+  {
+    question: "Can automated bank reconciliation handle multiple bank accounts and entities?",
+    answer:
+      "Yes, when built for it — matching rules and exception queues should run per bank account and per entity, with a consolidated view across all of them, rather than requiring a separate manual process per account.",
+  },
+  {
+    question: "How accurate is automated bank matching?",
+    answer:
+      "Auto-match rates above 90% are achievable once rules are tuned to your actual transaction patterns (exact matches, many-to-one, partial payments, FX), with the remaining lines routed to an exceptions queue rather than silently force-matched.",
+  },
+  {
+    question: "Does automating reconciliation remove the audit trail?",
+    answer:
+      "No — done properly, it strengthens it. Every automated match carries its matching logic and timestamp, which is more consistent and easier to evidence for audit than reconstructing a manual process after the fact.",
+  },
+];
+
+export const R2R_PROCESS_AUTOMATION_GUIDE_FAQS: Faq[] = [
+  {
+    question: "What does R2R process automation cover?",
+    answer:
+      "It covers every stage of the close in sequence: task orchestration, reconciliation, journal entries, provisions/accruals/amortization, and consolidation and reporting — each with its own automation opportunity rather than one single switch.",
+  },
+  {
+    question: "In what order should you automate the R2R process?",
+    answer:
+      "The practical order is task orchestration first, then reconciliation, then journal automation, then provisions and amortization, and consolidation last, since consolidation depends on everything upstream being reliable.",
+  },
+  {
+    question: "Does R2R automation remove the need for controller review?",
+    answer:
+      "No — automation handles the mechanical, repeatable work (matching, templated journals, scheduled provisions) so controllers spend their time on exception investigation, judgment calls, and final sign-off instead.",
+  },
+];

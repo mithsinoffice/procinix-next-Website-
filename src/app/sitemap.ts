@@ -5,7 +5,9 @@ import { SITE_URL } from "@/lib/seo";
 const priorityByGroup: Record<string, number> = {
   core: 0.9,
   pillar: 0.85,
+  guide: 0.8,
   module: 0.75,
+  glossary: 0.6,
   industry: 0.7,
   region: 0.7,
   solution: 0.75,

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Section } from "@/components/primitives/Section";
 import { faqJsonLd } from "@/lib/seo";
@@ -72,21 +72,19 @@ export function FaqSection({
                     }
                   />
                 </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-6 pb-6 pt-1 text-[14.5px] text-white/65 leading-[1.7]">
-                        {f.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <motion.div
+                  initial={false}
+                  animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="overflow-hidden"
+                >
+                  <div
+                    aria-hidden={!isOpen}
+                    className="px-6 pb-6 pt-1 text-[14.5px] text-white/65 leading-[1.7]"
+                  >
+                    {f.answer}
+                  </div>
+                </motion.div>
               </div>
             );
           })}

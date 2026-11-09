@@ -15,6 +15,8 @@ export type RouteDef = {
   group:
     | "core"
     | "pillar"
+    | "guide"
+    | "glossary"
     | "module"
     | "industry"
     | "region"
@@ -29,9 +31,9 @@ export const CORE_ROUTES = {
   home: {
     path: "/",
     label: "Home",
-    title: "Procinix",
+    title: "Finance Process Automation: S2P, O2C, R2R",
     description:
-      "Unified finance operations platform. AP automation, P2P software, sourcing & RFx, vendor reconciliation, O2C and AR, month-end close, cash flow, and analytics — with agentic AI, intelligent workflows, and real-time insights across Source-to-Pay, Order-to-Cash, and Record-to-Report.",
+      "Procinix unifies Source-to-Pay, Order-to-Cash, and Record-to-Report on one platform — automate AP, AR, and close for multi-entity finance teams. Book a demo.",
     keywords: [
       "finance operations platform",
       "finance automation",
@@ -249,6 +251,104 @@ export const PILLAR_ROUTES = {
   },
 } satisfies Record<string, RouteDef>;
 
+// -------- Long-form guides (buyer's guides, glossary, how-to content) --------
+export const GUIDE_ROUTES = {
+  recordToReportBuyersGuide: {
+    path: "/guides/record-to-report-software",
+    label: "R2R Buyer's Guide",
+    title: "Record-to-Report Software: The Complete Buyer's Guide",
+    description:
+      "How to evaluate record-to-report (R2R) software — core capabilities, build-vs-buy, implementation timeline, ROI, and the questions to ask vendors before you sign.",
+    keywords: [
+      "record to report software",
+      "R2R software",
+      "financial close software",
+      "close automation software",
+      "record to report tools",
+      "best record to report software",
+      "financial consolidation software",
+    ],
+    group: "guide",
+    family: "r2r",
+  },
+  bankReconciliationAutomation: {
+    path: "/guides/bank-reconciliation-automation",
+    label: "Automate Bank Reconciliation",
+    title: "How to Automate Bank Reconciliation: A Step-by-Step Guide",
+    description:
+      "How bank reconciliation automation actually works — matching logic, handling exceptions, multi-bank and multi-entity setups, and how to roll it out without disrupting your close.",
+    keywords: [
+      "automate bank reconciliation",
+      "bank reconciliation automation",
+      "how to automate bank reconciliation",
+      "bank reconciliation software",
+      "automated bank reconciliation process",
+    ],
+    group: "guide",
+    family: "r2r",
+  },
+  r2rProcessAutomation: {
+    path: "/guides/r2r-process-automation",
+    label: "R2R Process Automation",
+    title: "R2R Process Automation: Step-by-Step",
+    description:
+      "A step-by-step walkthrough of automating the record-to-report process — from close task orchestration through reconciliation, consolidation, and reporting.",
+    keywords: [
+      "R2R process automation",
+      "record to report automation",
+      "automate month end close",
+      "close process automation",
+      "financial close automation steps",
+    ],
+    group: "guide",
+    family: "r2r",
+  },
+} satisfies Record<string, RouteDef>;
+
+// -------- Glossary (short definitional "what is X" pages) --------
+export const GLOSSARY_ROUTES = {
+  whatIsR2R: {
+    path: "/glossary/record-to-report",
+    label: "What is Record-to-Report?",
+    title: "What is Record-to-Report (R2R)? Definition & Process",
+    description:
+      "Record-to-report (R2R) is the finance process that turns transaction activity into closed, audit-ready financial statements — task orchestration, reconciliation, consolidation, and reporting.",
+    keywords: ["what is record to report", "record to report definition", "R2R meaning", "R2R process"],
+    group: "glossary",
+    family: "r2r",
+  },
+  whatIsO2C: {
+    path: "/glossary/order-to-cash",
+    label: "What is Order-to-Cash?",
+    title: "What is Order-to-Cash (O2C)? Definition & Process",
+    description:
+      "Order-to-cash (O2C) is the process from order capture through billing, collections, and cash application to the point revenue is fully recognized and reconciled.",
+    keywords: ["what is order to cash", "order to cash definition", "O2C meaning", "O2C process"],
+    group: "glossary",
+    family: "o2c",
+  },
+  whatIsS2P: {
+    path: "/glossary/source-to-pay",
+    label: "What is Source-to-Pay?",
+    title: "What is Source-to-Pay (S2P)? Definition & Process",
+    description:
+      "Source-to-pay (S2P) spans sourcing and procurement through accounts payable and payment — the full value stream from choosing a supplier to paying them.",
+    keywords: ["what is source to pay", "source to pay definition", "S2P meaning", "S2P vs P2P"],
+    group: "glossary",
+    family: "s2p",
+  },
+  whatIsDSO: {
+    path: "/glossary/dso",
+    label: "What is DSO?",
+    title: "What is DSO (Days Sales Outstanding)? Definition & Formula",
+    description:
+      "DSO (Days Sales Outstanding) measures the average number of days it takes a company to collect payment after a sale — a core working-capital and collections-efficiency metric.",
+    keywords: ["what is DSO", "DSO meaning", "DSO formula", "days sales outstanding definition"],
+    group: "glossary",
+    family: "o2c",
+  },
+} satisfies Record<string, RouteDef>;
+
 // -------- Module pages --------
 export const MODULE_ROUTES = {
   // S2P
@@ -300,7 +400,7 @@ export const MODULE_ROUTES = {
   pettyCash: {
     path: "/modules/petty-cash",
     label: "Petty Cash",
-    title: "Petty Cash Management",
+    title: "Petty Cash Automation Software",
     description: "Digitized petty cash — cash advance workflows, receipt capture, float reconciliation, and site-level visibility with full audit trails.",
     keywords: ["petty cash management", "petty cash software", "site cash control", "cash advance workflow"],
     group: "module",
@@ -345,7 +445,7 @@ export const MODULE_ROUTES = {
   vendorPortal: {
     path: "/modules/vendor-portal",
     label: "Vendor Portal",
-    title: "Vendor Self-Service Portal",
+    title: "AP Automation & Vendor Self-Service Portal",
     description: "Vendor self-service portal — real-time invoice and payment status, PO acknowledgment, and secure document upload for suppliers.",
     keywords: ["vendor portal software", "supplier self-service portal", "vendor management portal", "vendor payment status portal", "supplier portal"],
     group: "module",
@@ -566,6 +666,8 @@ export const UTILITY_ROUTES = {
 export const ROUTES = {
   ...CORE_ROUTES,
   ...PILLAR_ROUTES,
+  ...GUIDE_ROUTES,
+  ...GLOSSARY_ROUTES,
   ...MODULE_ROUTES,
   ...INDUSTRY_ROUTES,
   ...REGION_ROUTES,

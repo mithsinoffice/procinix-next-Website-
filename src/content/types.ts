@@ -52,6 +52,21 @@ export type SolutionContent = {
   faq?: { question: string; answer: string }[];
 };
 
+export type GlossaryContent = {
+  slug: string;
+  term: string;
+  /** One-sentence definition, used as the hero description. */
+  shortDefinition: string;
+  metaDescription?: string;
+  /** Longer definition / explanation, 2-3 paragraphs. */
+  definition: string[];
+  keyComponents: { title: string; body: string }[];
+  family?: Family;
+  relatedTermSlugs?: string[];
+  relatedModuleSlugs?: string[];
+  faq?: { question: string; answer: string }[];
+};
+
 export type ComparisonContent = {
   slug: string;
   /** Name of the competitor being compared against. */

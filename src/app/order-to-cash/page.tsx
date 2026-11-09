@@ -11,7 +11,11 @@ import {
   Wallet,
 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
-import { PILLAR_ROUTES, MODULES_BY_FAMILY } from "@/lib/routes";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { PILLAR_ROUTES, MODULES_BY_FAMILY, GLOSSARY_ROUTES } from "@/lib/routes";
+import { Section } from "@/components/primitives/Section";
+import { Card } from "@/components/primitives/Card";
 import { DetailHero } from "@/components/sections/DetailHero";
 import { PillarFlow } from "@/components/sections/PillarFlow";
 import { PillarModules } from "@/components/sections/PillarModules";
@@ -80,6 +84,32 @@ export default function Page() {
         tone="amber"
       />
       <ValueAssessmentTeaser />
+      <Section eyebrow="Learn more" title="Definitions." containerSize="narrow">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            {
+              label: GLOSSARY_ROUTES.whatIsO2C.label,
+              body: "A plain-language definition of order-to-cash and what it covers.",
+              href: GLOSSARY_ROUTES.whatIsO2C.path,
+            },
+            {
+              label: GLOSSARY_ROUTES.whatIsDSO.label,
+              body: "The DSO formula, what counts as a good DSO, and how to reduce it.",
+              href: GLOSSARY_ROUTES.whatIsDSO.path,
+            },
+          ].map((item) => (
+            <Link key={item.href} href={item.href} className="block h-full">
+              <Card interactive glow className="h-full p-6">
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <h3 className="font-display text-[15.5px] text-white">{item.label}</h3>
+                  <ArrowUpRight className="h-4 w-4 text-white/30 shrink-0" />
+                </div>
+                <p className="text-[13px] text-white/55 leading-relaxed">{item.body}</p>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </Section>
       <FaqSection
         eyebrow="O2C FAQ"
         title={<>Order-to-Cash, <span className="text-white/40">answered.</span></>}

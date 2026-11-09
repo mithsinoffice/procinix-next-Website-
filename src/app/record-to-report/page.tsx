@@ -11,7 +11,11 @@ import {
   Radar,
 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
-import { PILLAR_ROUTES, MODULES_BY_FAMILY } from "@/lib/routes";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { PILLAR_ROUTES, MODULES_BY_FAMILY, GUIDE_ROUTES, GLOSSARY_ROUTES } from "@/lib/routes";
+import { Section } from "@/components/primitives/Section";
+import { Card } from "@/components/primitives/Card";
 import { DetailHero } from "@/components/sections/DetailHero";
 import { PillarFlow } from "@/components/sections/PillarFlow";
 import { PillarModules } from "@/components/sections/PillarModules";
@@ -56,7 +60,7 @@ export default function Page() {
             Close on time. <span className="text-white/40">Every time.</span>
           </>
         }
-        description="Faster close, stronger controls, and real-time visibility across month-end, consolidation, provisions, amortization, and year-end — with a full audit trail."
+        description="Record-to-report (R2R) software for a faster close, stronger controls, and real-time visibility across month-end, consolidation, provisions, amortization, and year-end — with a full audit trail."
         stats={[
           { value: "30–50%", label: "Close-days reduction" },
           { value: "100%", label: "Task ownership traceability" },
@@ -80,6 +84,37 @@ export default function Page() {
         tone="purple"
       />
       <ValueAssessmentTeaser />
+      <Section eyebrow="Learn more" title="Guides & definitions." containerSize="narrow">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {[
+            {
+              label: GUIDE_ROUTES.recordToReportBuyersGuide.label,
+              body: "Core capabilities, build-vs-buy, implementation timeline, and vendor questions to ask before you sign.",
+              href: GUIDE_ROUTES.recordToReportBuyersGuide.path,
+            },
+            {
+              label: GUIDE_ROUTES.r2rProcessAutomation.label,
+              body: "The close, stage by stage — where automation fits and what should stay manual by design.",
+              href: GUIDE_ROUTES.r2rProcessAutomation.path,
+            },
+            {
+              label: GLOSSARY_ROUTES.whatIsR2R.label,
+              body: "A plain-language definition of record-to-report and what it covers.",
+              href: GLOSSARY_ROUTES.whatIsR2R.path,
+            },
+          ].map((item) => (
+            <Link key={item.href} href={item.href} className="block h-full">
+              <Card interactive glow className="h-full p-6">
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <h3 className="font-display text-[15.5px] text-white">{item.label}</h3>
+                  <ArrowUpRight className="h-4 w-4 text-white/30 shrink-0" />
+                </div>
+                <p className="text-[13px] text-white/55 leading-relaxed">{item.body}</p>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </Section>
       <FaqSection
         eyebrow="R2R FAQ"
         title={<>Record-to-Report, <span className="text-white/40">answered.</span></>}
