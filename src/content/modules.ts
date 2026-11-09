@@ -270,7 +270,7 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     family: "s2p",
     tagline: "Petty cash & cash advance automation — audit trails, not shoeboxes.",
     metaDescription:
-      "Petty cash automation software — digitized cash advances, mobile receipt capture, float reconciliation, and full audit trails for field and branch teams.",
+      "Petty cash automation software for field and branch teams — digitized cash advances, mobile receipt capture, float reconciliation, and full audit trails.",
     painPoints: [
       "Cash advances tracked on spreadsheets",
       "No audit trail for site-level cash spend",
@@ -1372,9 +1372,9 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
   "vendor-portal": {
     slug: "vendor-portal",
     family: "s2p",
-    tagline: "Vendor self-service that cuts the inbound emails and calls.",
+    tagline: "Vendor self-service that kills the inbound \"where's my payment\" emails and calls.",
     metaDescription:
-      "Vendor portal software for AP self-service — invoice and payment status, PO acknowledgment, and document upload for suppliers, no email or calls needed.",
+      "Vendor portal software for AP self-service — real-time invoice and payment status, PO acknowledgment, and document upload for suppliers.",
     painPoints: [
       "AP team fielding constant \"where's my payment\" emails and calls",
       "Vendors have no visibility into invoice or PO status",
