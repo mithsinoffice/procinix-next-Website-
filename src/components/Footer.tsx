@@ -108,7 +108,13 @@ export function Footer() {
             <ul className="space-y-3 text-[13.5px] text-white/60">
               <li className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 mt-0.5 text-[var(--accent-teal)] shrink-0" />
-                <span>Built for multi-entity, multi-country operations</span>
+                <span>
+                  Procinix Technologies Private Limited
+                  <br />
+                  608, 6th Floor, Crescent Business Square, Opp. Gundecha
+                  Onclave, Khariani Road, Sakinaka, Andheri (E), Mumbai,
+                  Maharashtra - 400072, India
+                </span>
               </li>
               <li className="flex items-start gap-2.5">
                 <Mail className="h-4 w-4 mt-0.5 text-[var(--accent-teal)] shrink-0" />

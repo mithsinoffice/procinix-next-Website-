@@ -72,14 +72,25 @@ export function organizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: SITE_NAME,
+    legalName: "Procinix Technologies Private Limited",
     url: SITE_URL,
     logo: `${SITE_URL}/logo-procinix.png`,
     sameAs: ["https://www.linkedin.com/company/procinix-technologies-private-limited"],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress:
+        "608, 6th Floor, Crescent Business Square, Opp. Gundecha Onclave, Khariani Road, Sakinaka, Andheri (E)",
+      addressLocality: "Mumbai",
+      addressRegion: "Maharashtra",
+      postalCode: "400072",
+      addressCountry: "IN",
+    },
     contactPoint: [
       {
         "@type": "ContactPoint",
         contactType: "sales",
         email: "info@procinix.ai",
+        telephone: "+91-85913-99753",
         availableLanguage: ["en"],
       },
     ],
