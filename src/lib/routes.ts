@@ -31,9 +31,9 @@ export const CORE_ROUTES = {
   home: {
     path: "/",
     label: "Home",
-    title: "Finance Process Automation: S2P, O2C, R2R",
+    title: "Finance Operations Platform for AP, AR & Close",
     description:
-      "Procinix unifies Source-to-Pay, Order-to-Cash, and Record-to-Report on one platform — automate AP, AR, and close for multi-entity finance teams. Book a demo.",
+      "A unified finance operations platform for Source-to-Pay, Order-to-Cash, and Record-to-Report. Automate AP, AR, and close for multi-entity teams.",
     keywords: [
       "finance operations platform",
       "finance automation",
@@ -400,8 +400,8 @@ export const MODULE_ROUTES = {
   pettyCash: {
     path: "/modules/petty-cash",
     label: "Petty Cash",
-    title: "Petty Cash Automation Software",
-    description: "Digitized petty cash — cash advance workflows, receipt capture, float reconciliation, and site-level visibility with full audit trails.",
+    title: "Petty Cash Automation & Cash Advance Software",
+    description: "Petty cash automation software — cash advance workflows, receipt capture, float reconciliation, and site-level visibility with full audit trails.",
     keywords: ["petty cash management", "petty cash software", "site cash control", "cash advance workflow"],
     group: "module",
     family: "s2p",
@@ -445,8 +445,8 @@ export const MODULE_ROUTES = {
   vendorPortal: {
     path: "/modules/vendor-portal",
     label: "Vendor Portal",
-    title: "AP Automation & Vendor Self-Service Portal",
-    description: "Vendor self-service portal — real-time invoice and payment status, PO acknowledgment, and secure document upload for suppliers.",
+    title: "Vendor Portal Software for Suppliers",
+    description: "Vendor portal software for AP self-service — real-time invoice and payment status, PO acknowledgment, and secure document upload for suppliers.",
     keywords: ["vendor portal software", "supplier self-service portal", "vendor management portal", "vendor payment status portal", "supplier portal"],
     group: "module",
     family: "s2p",
