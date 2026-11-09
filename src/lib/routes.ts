@@ -445,8 +445,8 @@ export const MODULE_ROUTES = {
   vendorPortal: {
     path: "/modules/vendor-portal",
     label: "Vendor Portal",
-    title: "Vendor Portal Software for AP Self-Service",
-    description: "Give vendors real-time invoice and payment status, PO acknowledgment, and secure document upload — cut AP's inbound status-check emails and calls.",
+    title: "Vendor Portal Software for Suppliers",
+    description: "Give vendors real-time invoice and payment status, PO acknowledgment, and secure document upload — no more status-check emails or calls.",
     keywords: ["vendor portal software", "supplier self-service portal", "vendor management portal", "vendor payment status portal", "supplier portal"],
     group: "module",
     family: "s2p",

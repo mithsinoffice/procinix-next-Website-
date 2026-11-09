@@ -1374,7 +1374,7 @@ export const MODULE_CONTENT: Record<string, ModuleContent> = {
     family: "s2p",
     tagline: "Vendor self-service that kills the inbound \"where's my payment\" emails and calls.",
     metaDescription:
-      "Vendor portal software for AP self-service — real-time invoice and payment status, PO acknowledgment, and document upload for suppliers.",
+      "Vendor portal software — real-time invoice and payment status, PO acknowledgment, and document upload for suppliers.",
     painPoints: [
       "AP team fielding constant \"where's my payment\" emails and calls",
       "Vendors have no visibility into invoice or PO status",
