@@ -90,7 +90,7 @@ export function organizationJsonLd() {
         "@type": "ContactPoint",
         contactType: "sales",
         email: "info@procinix.ai",
-        telephone: "+91-85913-99753",
+        telephone: "+91-86557-61093",
         availableLanguage: ["en"],
       },
     ],

@@ -62,10 +62,10 @@ export default function Page() {
                     Phone
                   </div>
                   <a
-                    href="tel:+918591399753"
+                    href="tel:+918655761093"
                     className="hover:text-white transition-colors"
                   >
-                    +91 85913 99753
+                    +91 86557 61093
                   </a>
                 </div>
               </li>
