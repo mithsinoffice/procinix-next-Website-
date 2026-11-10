@@ -78,6 +78,7 @@ export function SliderTable({ campaigns, role }: { campaigns: HeroCampaign[]; ro
                       onClick={() => move(i, -1)}
                       className="text-slate-400 hover:text-slate-700 disabled:opacity-20"
                       aria-label="Move up"
+                      title="Move up (earlier in the slider)"
                     >
                       <ArrowUp className="h-3.5 w-3.5" />
                     </button>
@@ -87,6 +88,7 @@ export function SliderTable({ campaigns, role }: { campaigns: HeroCampaign[]; ro
                       onClick={() => move(i, 1)}
                       className="text-slate-400 hover:text-slate-700 disabled:opacity-20"
                       aria-label="Move down"
+                      title="Move down (later in the slider)"
                     >
                       <ArrowDown className="h-3.5 w-3.5" />
                     </button>
@@ -126,6 +128,7 @@ export function SliderTable({ campaigns, role }: { campaigns: HeroCampaign[]; ro
                       href={`/admin/slider/${c.id}`}
                       className="p-1.5 rounded-md text-slate-500 hover:text-[#0a8f8f] hover:bg-slate-100"
                       aria-label="Edit"
+                      title="Edit this slide's content"
                     >
                       <Pencil className="h-4 w-4" />
                     </Link>
@@ -135,6 +138,7 @@ export function SliderTable({ campaigns, role }: { campaigns: HeroCampaign[]; ro
                       disabled={busyId === c.id}
                       className="p-1.5 rounded-md text-slate-500 hover:text-[#0a8f8f] hover:bg-slate-100"
                       aria-label="Duplicate"
+                      title="Duplicate as a new draft"
                     >
                       {busyId === c.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <Copy className="h-4 w-4" />}
                     </button>
@@ -145,6 +149,7 @@ export function SliderTable({ campaigns, role }: { campaigns: HeroCampaign[]; ro
                         disabled={busyId === c.id}
                         className="p-1.5 rounded-md text-slate-500 hover:text-emerald-600 hover:bg-slate-100"
                         aria-label="Publish"
+                        title="Publish — show this slide on the live site"
                       >
                         <Eye className="h-4 w-4" />
                       </button>
@@ -156,6 +161,7 @@ export function SliderTable({ campaigns, role }: { campaigns: HeroCampaign[]; ro
                         disabled={busyId === c.id}
                         className="p-1.5 rounded-md text-slate-500 hover:text-orange-600 hover:bg-slate-100"
                         aria-label="Unpublish"
+                        title="Unpublish — hide this slide from the live site (keeps it saved)"
                       >
                         <EyeOff className="h-4 w-4" />
                       </button>
@@ -167,6 +173,7 @@ export function SliderTable({ campaigns, role }: { campaigns: HeroCampaign[]; ro
                             type="button"
                             className="p-1.5 rounded-md text-slate-500 hover:text-red-600 hover:bg-slate-100"
                             aria-label="Archive"
+                            title="Archive — remove from the active list (recoverable later)"
                           >
                             <Archive className="h-4 w-4" />
                           </button>

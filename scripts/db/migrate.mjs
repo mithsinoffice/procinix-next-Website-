@@ -35,10 +35,15 @@ const sql = neon(databaseUrl);
 async function applySchema() {
   const schemaPath = path.join(__dirname, "..", "..", "src", "lib", "db", "schema.sql");
   const schema = readFileSync(schemaPath, "utf8");
-  const statements = schema
+  // Strip `--` line comments before splitting on `;` — a naive split
+  // misparses when a comment sits directly above a statement (no semicolon
+  // between them merges the comment and statement into one discarded
+  // chunk) or when a comment itself contains a semicolon.
+  const withoutComments = schema.replace(/--.*$/gm, "");
+  const statements = withoutComments
     .split(";")
     .map((s) => s.trim())
-    .filter((s) => s.length > 0 && !s.startsWith("--"));
+    .filter((s) => s.length > 0);
 
   for (const statement of statements) {
     await sql.query(statement);
