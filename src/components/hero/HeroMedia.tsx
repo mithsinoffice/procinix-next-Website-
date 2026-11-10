@@ -40,7 +40,7 @@ export function HeroMedia({
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/[0.08] shadow-2xl shadow-black/40">
         <video
           ref={videoRef}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-top"
           muted
           loop
           playsInline
@@ -79,7 +79,7 @@ export function HeroMedia({
         priority={eager}
         loading={eager ? undefined : "lazy"}
         sizes="(min-width: 1024px) 62vw, 100vw"
-        className={campaign.mobileMediaUrl ? "hidden md:block object-cover" : "object-cover"}
+        className={campaign.mobileMediaUrl ? "hidden md:block object-cover object-top" : "object-cover object-top"}
       />
       {campaign.mobileMediaUrl && (
         <Image
@@ -89,7 +89,7 @@ export function HeroMedia({
           priority={eager}
           loading={eager ? undefined : "lazy"}
           sizes="100vw"
-          className="md:hidden object-cover"
+          className="md:hidden object-cover object-top"
         />
       )}
     </div>
