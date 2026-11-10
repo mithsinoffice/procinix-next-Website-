@@ -12,7 +12,6 @@ import type { HeroCampaign } from "@/lib/hero/types";
 import { HeroSlideContent } from "./HeroSlideContent";
 import { HeroMedia } from "./HeroMedia";
 import { HeroControls } from "./HeroControls";
-import { HeroPreviewStrip } from "./HeroPreviewStrip";
 
 type InteractionSource = "click" | "swipe" | "keyboard" | "autoplay" | "deep_link";
 
@@ -193,7 +192,7 @@ export function HeroSlider({ campaigns }: { campaigns: HeroCampaign[] }) {
           </AnimatePresence>
         </div>
 
-        <div className="mt-10 lg:mt-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
+        <div className="mt-10 lg:mt-14 flex items-center gap-5">
           <HeroControls
             count={campaigns.length}
             activeIndex={activeIndex}
@@ -201,7 +200,6 @@ export function HeroSlider({ campaigns }: { campaigns: HeroCampaign[] }) {
             onNext={() => goTo(activeIndex + 1, "click")}
             onSelectIndex={(i) => goTo(i, "click")}
           />
-          <HeroPreviewStrip campaigns={campaigns} activeId={active.id} onSelect={(id) => select(id, "click")} />
         </div>
       </Container>
     </section>

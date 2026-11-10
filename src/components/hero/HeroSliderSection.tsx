@@ -7,7 +7,6 @@ import { HeroSlider } from "./HeroSlider";
 import { HeroSlideContent } from "./HeroSlideContent";
 import { HeroMedia } from "./HeroMedia";
 import { HeroControls } from "./HeroControls";
-import { HeroPreviewStrip } from "./HeroPreviewStrip";
 import type { HeroCampaign } from "@/lib/hero/types";
 
 /**
@@ -17,7 +16,7 @@ import type { HeroCampaign } from "@/lib/hero/types";
  *
  * Renders the top-priority campaign with real, crawlable, non-shifting
  * content using the exact same subcomponents as the hydrated slider, so
- * there's nothing to visually "pop in". HeroControls/HeroPreviewStrip take
+ * there's nothing to visually "pop in". HeroControls takes
  * no onClick handlers here — passing a function from this Server Component
  * into those Client Components would violate the RSC server/client
  * boundary (see the fix in commit history for the previous showcase
@@ -40,9 +39,8 @@ function HeroSliderFallback({ campaigns }: { campaigns: HeroCampaign[] }) {
             <HeroMedia campaign={active} isActive eager />
           </div>
         </div>
-        <div className="mt-10 lg:mt-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
+        <div className="mt-10 lg:mt-14 flex items-center gap-5">
           <HeroControls count={campaigns.length} activeIndex={0} />
-          <HeroPreviewStrip campaigns={campaigns} activeId={active.id} />
         </div>
       </Container>
     </section>
